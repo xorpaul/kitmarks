@@ -564,7 +564,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 			  <xsl:call-template name="BODY_MAIN"/>
 		  </xsl:when>
 		  <xsl:otherwise>
-			  <p class="header">import your browser bookmarks TEST ENGLISH</p>
+			  <p class="header">import your browser bookmarks</p>
 			  <xsl:if test="//Result != 'SUCCESS'">
 				  <p>
 					  <font color="red">

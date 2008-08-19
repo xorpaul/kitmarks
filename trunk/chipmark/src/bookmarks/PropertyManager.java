@@ -29,7 +29,7 @@ package bookmarks;
 
 public class PropertyManager {
 	// Define instance specific information
-	static public String CATALINA_BASE = "C:\\\\Programme\\\\Apache Software Foundation\\\\Tomcat 6.0\\\\webapps\\\\";
+	static public String CATALINA_BASE = "C:\\\\Program Files\\\\Apache Software Foundation\\\\Tomcat 6.0\\\\webapps\\\\";
 	/**
 	 * CATALINA_BASE = unter Linux: "/srv/devtomcat/"; unter Windows:
 	 * "C:\\\\Program Files\\\\Apache Software Foundation\\\\Tomcat 6.0\\\\webapps\\\\"
