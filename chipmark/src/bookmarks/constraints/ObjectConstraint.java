@@ -1,0 +1,47 @@
+/*
+-------------------------------------------------------------------------------------------------
+Copyright, 2006, Chipmark.
+
+This file is part of Chipmark.
+
+Chipmark is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+Chipmark is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Chipmark; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+-------------------------------------------------------------------------------------------------
+*/
+
+package bookmarks.constraints;
+
+/** A class for constraint checking on objects.  You can specify whether
+ * an object is allowed to be null, and subclasses of this class can
+ * impose further restrictions on specific object types.
+ * Code taken from Hardcore Java by
+ *R. Simmons
+ *@author Carmen Wick
+ */
+public class ObjectConstraint extends Constraint{
+    private boolean canBeNull;
+    
+    public ObjectConstraint(final String name, final boolean canBeNull){
+	super(name);
+	this.canBeNull = canBeNull;
+    }
+
+    public void validate(Object obj){
+	if (obj == null && !canBeNull){
+	    throw new ConstraintException(
+		       ConstraintException.NULL_NOT_ALLOWED,
+		       this);
+	}
+    }
+}

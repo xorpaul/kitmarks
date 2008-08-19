@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml>
+  <LoggedInAs>username</LoggedInAs>
+  <AllLabelList>
+    <Label name="chipmarktoolbar" />
+    <Label name="search engine" />
+  </AllLabelList>
+  <BookmarkList>
+    <Bookmark id="10181902" permission="public">
+      <Title>Yahoo</Title>
+      <Link>http://www.yahoo.com</Link>
+      <Description>Yahoo Inc.</Description>
+      <LabelList>
+        <Label name="search engine" />
+      </LabelList>
+    </Bookmark>
+    <Bookmark id="10181906" permission="private">
+      <Title>Local Web Server</Title>
+      <Link>http://127.0.0.1</Link>
+      <Description></Description>
+      <LabelList>
+        <Label name="chipmarktoolbar" />
+      </LabelList>
+    </Bookmark>
+    <Bookmark id="10181912" permission="public">
+      <Title>Google</Title>
+      <Link>http://www.google.com</Link>
+      <Description>Google Search</Description>
+      <LabelList>
+        <Label name="search engine" />
+      </LabelList>
+    </Bookmark>
+  </BookmarkList>
+</xml>

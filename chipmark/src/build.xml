@@ -1,0 +1,229 @@
+<?xml version="1.0" ?>
+<project name="grputil" default="compile" basedir=".">
+
+        <!-- jars we are creating -->
+        <property name="bookmarksJar"  value="bookmarks.jar"/>        
+		<property name="facebookJar" value="facebook.jar"/>
+		<property name="jsonJar" value="JSON.jar"/>
+	
+		<!-- <property file="../../../conf/${user.name}.properties"/> -->
+		<property name="prop" value="${user.name}"/>
+		<property file="../../../conf/${prop}.properties"/>
+	
+        <!-- locations we care about -->
+        <property name="ml3BuildDir"  value="classes"/>
+        <property name="ml3Doc"  value="doc"/>        
+
+        <!-- jars that we need (local)-->
+        <property name="dom4jJar" value="jars/dom4j-1.6.1.jar"/>
+        <property name="jargsJar" value="jars/jargs.jar"/>
+        <property name="jdbcJar" value="jars/mysql-connector-java-5.0.3-bin.jar"/>
+        <property name="junitJar" value="jars/junit.jar"/>
+        <property name="glutilJar" value="jars/glutil.jar"/>
+		<property name="activationJar" value="jars/activation.jar"/>
+        <property name="mailJar" value="jars/mail.jar"/>
+	
+		<!-- JARs for htmlunit  -->
+		<property name="commonsCodec1.3" value="jars/commons-codec-1.3.jar"/>
+		<property name="commonsCollections3.2" value="jars/commons-collections-3.2.jar"/>
+		<property name="commonsHttpClient3.0.1" value="jars/commons-httpclient-3.0.1.jar"/>
+		<property name="commonsIo1.3.1" value="jars/commons-io-1.3.1.jar"/>
+		<property name="commonsLang2.3" value="jars/commons-lang-2.3.jar"/>
+		<property name="commonsLogging1.1" value="jars/commons-logging-1.1.jar"/>
+		<property name="htmlUnit1.13" value="jars/htmlunit-1.13.jar"/>
+		<property name="jaxen1.1.1" value="jars/jaxen-1.1.1.jar"/>
+		<property name="js1.6R5" value="jars/js-1.6R5.jar"/>
+		<property name="nekohtml0.9.5" value="jars/nekohtml-0.9.5.jar"/>
+		<property name="xercesImpl2.6.2" value="jars/xercesImpl-2.6.2.jar"/>
+		<property name="xmlParserApi2.6.2" value="jars/xmlParserAPIs-2.6.2.jar"/>
+
+        <!-- jars that we need (included with Tomcat) --> 
+        <!-- these are direct references to the tomcat jars -->
+        <property name="servletJar" value="${catalina_home}/common/lib/servlet-api.jar"/>
+		<property name="defaultJar" value="${catalina_home}/server/lib/servlets-default.jar"/>
+
+        <!-- compiler settings -->
+        <property name="compile.debug"       value="true"/>
+        <property name="compile.deprecation" value="false"/>
+        <property name="compile.optimize"    value="true"/>
+
+        <path id="compile.classpath">
+                <pathelement location="${buildDir}"/>
+                <pathelement location="${glutilJar}"/>
+                <pathelement location="${dom4jJar}"/>
+                <pathelement location="${junitJar}"/>
+                <pathelement location="${jargsJar}"/>
+                <pathelement location="${mailJar}"/>
+				<pathelement location="${activationJar}"/>
+                <pathelement location="${servletJar}"/>
+                <pathelement location="${CommonsHttpClient}"/>
+                <pathelement location="${CommonsLogger}"/>
+        		<pathelement location="${htmlUnit1.13}"/>
+        </path>
+
+        <path id="test.classpath">
+                <pathelement location="${ml3BuildDir}"/>
+                <pathelement location="${jdbcJar}"/>
+                <pathelement location="${xercesImplJar}"/>
+                <pathelement location="${xmlParserAPIsJar}"/>
+		<pathelement location="${defaultJar}"/>
+        </path>
+
+
+		<path id="htmlunit.classpath">
+			<pathelement location="${commonsCodec1.3}"/>
+			<pathelement location="${commonsCollections3.2}"/>
+			<pathelement location="${commonsHttpClient3.0.1}"/>
+			<pathelement location="${commonsIo1.3.1}"/>
+			<pathelement location="${commonsLang2.3}"/>
+			<pathelement location="${commonsLogging1.1}"/>
+			<pathelement location="${htmlUnit1.13}"/>
+			<pathelement location="${jaxen1.1.1}"/>
+			<pathelement location="${js1.6R5}"/>
+			<pathelement location="${commonsCodec1.3}"/>
+			<pathelement location="${nekohtml0.9.5}"/>
+			<pathelement location="${xercesImpl2.6.2}"/>
+			<pathelement location="${xmlParserApi2.6.2}"/>
+		</path>
+
+        <target name="initBuildDir">
+                <tstamp/>
+                <mkdir dir="${ml3BuildDir}"/>
+        </target>
+
+	<target name="clean">
+	        <delete>
+		        <fileset dir="." includes="**/*.class"/>
+		</delete>
+		<delete file="facebook.jar"/>
+		<delete file="JSON.jar"/>
+		<delete dir="classes/org"/>
+		<delete dir="classes/com"/>
+		<delete dir="classes/bookmarks/testHtmlUnit"/>
+		<delete dir="classes/bookmarks/facebookApp"/>
+	</target>
+
+        <target name="compile" depends="initBuildDir">                
+                
+                <javac srcdir="." destdir="${ml3BuildDir}"
+                       debug="${compile.debug}" deprecation="${compile.deprecation}"
+                       optimize="${compile.optimize}" source="1.5">
+                       <!-- source="1.4" allows assert()s -->
+                       <classpath refid="compile.classpath"/>
+                </javac>
+                
+                <jar jarfile="${bookmarksJar}" basedir="${ml3BuildDir}" includes="bookmarks/**"/>
+        		<jar jarfile="${facebookJar}" basedir="${ml3BuildDir}" includes="com/facebook/**"/>
+        		<jar jarfile="${jsonJar}" basedir="${ml3BuildDir}" includes="org/json/**"/>
+        	
+                <!-- Copy jars from this source code -->
+                <copy todir="../WEB-INF/lib">
+                        <fileset dir=".">
+                                <include name="*.jar"/>
+                        </fileset>
+                </copy>
+
+                <!-- Copy jars we depend on -->
+                <copy file="${dom4jJar}" todir="../WEB-INF/lib"/>
+                <copy file="${glutilJar}" todir="../WEB-INF/lib"/>
+                <copy file="${jargsJar}" todir="../WEB-INF/lib"/>
+                <copy file="${jdbcJar}" todir="../WEB-INF/lib"/>
+                <copy file="${activationJar}" todir="../WEB-INF/lib"/>
+                <copy file="${mailJar}" todir="../WEB-INF/lib"/>
+
+                <!-- Don't copy junit.jar, it's for testing only -->
+                <!-- Don't copy servlet.jar. -->
+                <!-- They are supplied by the servlet container, e.g. Tomcat -->
+        	
+        </target>
+	
+       <path id="junit.classpath">
+          	<path refid="compile.classpath"/>
+	  		<path refid="test.classpath"/>
+       		<path refid="htmlunit.classpath"/>
+       </path>
+
+		<target name="RunHtmlUnitTests" depends="compile">
+			<java classname="bookmarks.testHtmlUnit.ChipmarkTestSuite" failonerror="yes" fork="true">
+				<jvmarg value="-Djava.protocol.handler.pkgs=com.sun.net.ssl.internal.www.protocol"/>
+				<jvmarg value="-Dchipmark_test=true"/>
+				<env key="chipmark_ssl_port" value="${ssl_port}"/>
+				<classpath refid="junit.classpath"/>
+			</java>
+		</target>
+	
+		<target name="test" depends="RunHtmlUnitTests">
+		</target>
+	
+		<target name="configure">
+			<echo>Using properties file: ../../../conf/${prop}.properties</echo>
+			<copy file="${catalina_base}/conf/init/init_server.xml" tofile="${catalina_base}/conf/server.xml" overwrite="yes"/>
+			<replace file="${catalina_base}/conf/server.xml" propertyFile="${catalina_base}/conf/${prop}.properties">
+				<replacefilter token="@catalina_base@" property="catalina_base"/>
+				<replacefilter token="@catalina_home@" property="catalina_home"/>
+				<replacefilter token="@shutdown_port@" property="shutdown_port"/>
+				<replacefilter token="@httpd_port@" property="httpd_port"/>
+				<replacefilter token="@ssl_port@" property="ssl_port"/>
+				<replacefilter token="@keystore_file@" property="keystore_file"/>
+				<replacefilter token="@keystore_pass@" property="keystore_pass"/>
+				<replacefilter token="@database_domain@" property="database_domain"/>
+				<replacefilter token="@database_name@" property="database_name"/>
+				<replacefilter token="@database_user@" property="database_user"/>
+				<replacefilter token="@database_password@" property="database_password"/>
+			</replace>
+			<copy file="${catalina_base}/conf/init/init_shutdown.bat" tofile="${catalina_base}/shutdown.bat" overwrite="yes"/>
+			<replace file="${catalina_base}/shutdown.bat" propertyFile="${catalina_base}/conf/${prop}.properties">
+				<replacefilter token="@catalina_base@" property="catalina_base"/>
+				<replacefilter token="@catalina_home@" property="catalina_home"/>
+				<replacefilter token="@tomcat_opts@" property="tomcat_opts"/>
+				<replacefilter token="@catalina_opts@" property="catalina_opts"/>
+			</replace>
+			<copy file="${catalina_base}/conf/init/init_shutdown.sh" tofile="${catalina_base}/shutdown.sh" overwrite="yes"/>
+			<replace file="${catalina_base}/shutdown.sh" propertyFile="${catalina_base}/conf/${prop}.properties">
+				<replacefilter token="@catalina_base@" property="catalina_base"/>
+				<replacefilter token="@catalina_home@" property="catalina_home"/>
+				<replacefilter token="@tomcat_opts@" property="tomcat_opts"/>
+				<replacefilter token="@catalina_opts@" property="catalina_opts"/>
+			</replace>
+	        <chmod file="${catalina_base}/shutdown.sh" perm="ugo+rx"/>
+			<copy file="${catalina_base}/conf/init/init_startup.bat" tofile="${catalina_base}/startup.bat" overwrite="yes"/>
+			<replace file="${catalina_base}/startup.bat" propertyFile="${catalina_base}/conf/${prop}.properties">
+				<replacefilter token="@catalina_base@" property="catalina_base"/>
+				<replacefilter token="@catalina_home@" property="catalina_home"/>
+				<replacefilter token="@tomcat_opts@" property="tomcat_opts"/>
+				<replacefilter token="@catalina_opts@" property="catalina_opts"/>
+			</replace>
+			<copy file="${catalina_base}/conf/init/init_startup.sh" tofile="${catalina_base}/startup.sh" overwrite="yes"/>
+			<replace file="${catalina_base}/startup.sh" propertyFile="${catalina_base}/conf/${prop}.properties">
+				<replacefilter token="@catalina_base@" property="catalina_base"/>
+				<replacefilter token="@catalina_home@" property="catalina_home"/>
+				<replacefilter token="@tomcat_opts@" property="tomcat_opts"/>
+				<replacefilter token="@catalina_opts@" property="catalina_opts"/>
+			</replace>
+	         <chmod file="${catalina_base}/startup.sh" perm="ugo+rx"/> 
+			<copy file="${catalina_base}/conf/init/init_index.jsp" tofile="${catalina_base}/webapps/root/index.jsp" overwrite="yes"/>
+			<replace file="${catalina_base}/webapps/root/index.jsp" propertyFile="${catalina_base}/conf/${prop}.properties">
+				<replacefilter token="@base_url@" property="base_url"/>
+				<replacefilter token="@httpd_port@" property="httpd_port"/>
+			</replace>
+			<copy file="${catalina_base}/conf/init/init_PropertyManager.java" tofile="${catalina_base}/webapps/root/src/bookmarks/PropertyManager.java" overwrite="yes"/>
+			<replace file="${catalina_base}/webapps/root/src/bookmarks/PropertyManager.java" propertyFile="${catalina_base}/conf/${prop}.properties">
+				<replacefilter token="@catalina_base@" property="catalina_base"/>
+				<replacefilter token="@email_from@" property="email_from"/>
+				<replacefilter token="@email_username@" property="email_username"/>
+				<replacefilter token="@email_password@" property="email_password"/>
+				<replacefilter token="@email_host@" property="email_host"/>
+				<replacefilter token="@email_port@" property="email_port"/>
+				<replacefilter token="@facebook_infinite_key@" property="facebook_infinite_key"/>
+				<replacefilter token="@facebook_api_key@" property="facebook_api_key"/>
+				<replacefilter token="@facebook_secret@" property="facebook_secret"/>
+				<!-- get rid of this database stuff ASAP -->
+				<replacefilter token="@database_domain@" property="database_domain"/>
+				<replacefilter token="@database_name@" property="database_name"/>
+				<replacefilter token="@database_user@" property="database_user"/>
+				<replacefilter token="@database_password@" property="database_password"/>
+				<replacefilter token="@database_max_chipmarks@" property="database_max_chipmarks"/>
+			</replace>
+		</target>
+	
+</project>

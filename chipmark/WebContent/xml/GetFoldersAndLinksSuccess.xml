@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+	<Result>SUCCESS</Result>
+	<AllLabelList>
+		<Label name="search" />
+		<Label name="shop" />
+		<Label name="video" />
+	</AllLabelList>
+	<BookmarkList>
+		<Bookmark id="7653646" permission="public">
+			<Title>Google</Title>
+			<Link>http://www.google.com</Link>
+			<Description>This is Google's homepage</Description>
+			<LabelList>
+				<Label name="search" />
+			</LabelList>
+			<linkFolderParentID>1019094</linkFolderParentID>
+			<Icon>http://www.google.com/favicon.ico</Icon>
+		</Bookmark>
+		<Bookmark id="7653647" permission="public">
+			<Title>YouTube</Title>
+			<Link>http://www.youtube.com</Link>
+			<Description>Video sharing site</Description>
+			<LabelList>
+				<Label name="video" />
+			</LabelList>
+			<linkFolderParentID>1019093</linkFolderParentID>
+			<Icon>http://www.youtube.com/favicon.ico</Icon>
+		</Bookmark>
+		<Bookmark id="7653648" permission="private">
+			<Title>Amazon</Title>
+			<Link>http://www.amazon.com</Link>
+			<Description>This is a shopping site</Description>
+			<LabelList>
+				<Label name="shop" />
+			</LabelList>
+			<linkFolderParentID>789054</linkFolderParentID>
+			<Icon>http://www.amazon.com/favicon.ico</Icon>
+		</Bookmark>
+	</BookmarkList>
+	<FolderList>
+		<Folder id="838253" parent="789054" type="inbox">
+			<FolderName>inbox</FolderName>
+		</Folder>
+		<Folder id="1019094" parent="1019093" type="local">
+			<FolderName>Internal User Created Folder</FolderName>
+		</Folder>
+		<Folder id="1019093" parent="789054" type="local">
+			<FolderName>User Created Folder</FolderName>
+		</Folder>
+		<Folder id="789054" parent="0" type="root">
+			<FolderName>Your Chipmarks</FolderName>
+		</Folder>
+	</FolderList>
+</xml>
+

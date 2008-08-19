@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml>
+  <LoggedInAs>username</LoggedInAs>
+  <BookmarkList>
+    <Bookmark>
+      <LoggedIn />
+      <Link>http://www.mozillazine.org/</Link>
+      <EncodedLink>http%3A%2F%2Fwww.mozillazine.org%2F</EncodedLink>
+      <HitCount>3932</HitCount>
+      <HitCountToSortBy>03932</HitCountToSortBy>
+      <Rank>1</Rank>
+      <NumberOfUsers>19881</NumberOfUsers>
+      <Percentage>19</Percentage>
+    </Bookmark>
+    <Bookmark>
+      <LoggedIn />
+      <Link>http://www.spreadfirefox.com/</Link>
+      <EncodedLink>http%3A%2F%2Fwww.spreadfirefox.com%2F</EncodedLink>
+      <HitCount>3369</HitCount>
+      <HitCountToSortBy>03369</HitCountToSortBy>
+      <Rank>2</Rank>
+      <NumberOfUsers>19881</NumberOfUsers>
+      <Percentage>16</Percentage>
+    </Bookmark>
+    <Bookmark>
+      <LoggedIn />
+      <Link>http://www.microsoft.com/isapi/redir.dll?prd=windows&amp;sbp=mediaplayer&amp;plcid=&amp;pver=6.1&amp;os=&amp;over=&amp;olcid=&amp;clcid=&amp;ar=Media&amp;sba=RadioBar&amp;o1=&amp;o2=&amp;o3=</Link>
+      <EncodedLink>http%3A%2F%2Fwww.microsoft.com%2Fisapi%2Fredir.dll%3Fprd%3Dwindows%26sbp%3Dmediaplayer%26plcid%3D%26pver%3D6.1%26os%3D%26over%3D%26olcid%3D%26clcid%3D%26ar%3DMedia%26sba%3DRadioBar%26o1%3D%26o2%3D%26o3%3D</EncodedLink>
+      <HitCount>3183</HitCount>
+      <HitCountToSortBy>03183</HitCountToSortBy>
+      <Rank>3</Rank>
+      <NumberOfUsers>19881</NumberOfUsers>
+      <Percentage>16</Percentage>
+    </Bookmark>
+    <Bookmark>
+      <LoggedIn />
+      <Link>http://en.wikipedia.org/wiki/Special:Search?search=%s</Link>
+      <EncodedLink>http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FSpecial%3ASearch%3Fsearch%3D%25s</EncodedLink>
+      <HitCount>2939</HitCount>
+      <HitCountToSortBy>02939</HitCountToSortBy>
+      <Rank>4</Rank>
+      <NumberOfUsers>19881</NumberOfUsers>
+      <Percentage>14</Percentage>
+    </Bookmark>
+    <Bookmark>
+      <LoggedIn />
+      <Link>http://www.google.com/search?q=%s</Link>
+      <EncodedLink>http%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3D%25s</EncodedLink>
+      <HitCount>2882</HitCount>
+      <HitCountToSortBy>02882</HitCountToSortBy>
+      <Rank>5</Rank>
+      <NumberOfUsers>19881</NumberOfUsers>
+      <Percentage>14</Percentage>
+    </Bookmark>
+    <Bookmark>
+      <LoggedIn />
+      <Link>http://www.mozilla.org/</Link>
+      <EncodedLink>http%3A%2F%2Fwww.mozilla.org%2F</EncodedLink>
+      <HitCount>2460</HitCount>
+      <HitCountToSortBy>02460</HitCountToSortBy>
+      <Rank>6</Rank>
+      <NumberOfUsers>19881</NumberOfUsers>
+      <Percentage>12</Percentage>
+    </Bookmark>
+    <Bookmark>
+      <LoggedIn />
+      <Link>http://addons.mozilla.org/?application=firefox</Link>
+      <EncodedLink>http%3A%2F%2Faddons.mozilla.org%2F%3Fapplication%3Dfirefox</EncodedLink>
+      <HitCount>2367</HitCount>
+      <HitCountToSortBy>02367</HitCountToSortBy>
+      <Rank>7</Rank>
+      <NumberOfUsers>19881</NumberOfUsers>
+      <Percentage>11</Percentage>
+    </Bookmark>
+    <Bookmark>
+      <LoggedIn />
+      <Link>http://www.google.com/search?q=stocks:%s</Link>
+      <EncodedLink>http%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3Dstocks%3A%25s</EncodedLink>
+      <HitCount>2365</HitCount>
+      <HitCountToSortBy>02365</HitCountToSortBy>
+      <Rank>8</Rank>
+      <NumberOfUsers>19881</NumberOfUsers>
+      <Percentage>11</Percentage>
+    </Bookmark>
+    <Bookmark>
+      <LoggedIn />
+      <Link>http://dictionary.reference.com/search?q=%s</Link>
+      <EncodedLink>http%3A%2F%2Fdictionary.reference.com%2Fsearch%3Fq%3D%25s</EncodedLink>
+      <HitCount>2200</HitCount>
+      <HitCountToSortBy>02200</HitCountToSortBy>
+      <Rank>9</Rank>
+      <NumberOfUsers>19881</NumberOfUsers>
+      <Percentage>11</Percentage>
+    </Bookmark>
+    <Bookmark>
+      <LoggedIn />
+      <Link>http://www.microsoft.com/isapi/redir.dll?prd=ie&amp;pver=6&amp;ar=IStart</Link>
+      <EncodedLink>http%3A%2F%2Fwww.microsoft.com%2Fisapi%2Fredir.dll%3Fprd%3Die%26pver%3D6%26ar%3DIStart</EncodedLink>
+      <HitCount>2158</HitCount>
+      <HitCountToSortBy>02158</HitCountToSortBy>
+      <Rank>10</Rank>
+      <NumberOfUsers>19881</NumberOfUsers>
+      <Percentage>10</Percentage>
+    </Bookmark>
+  </BookmarkList>
+</xml>
