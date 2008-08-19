@@ -1,0 +1,5 @@
+activation.jar came from
+
+cp -p /scratch/ml3/jakarta-tomcat-4.1.24/common/lib/activation.jar .
+
+Not used for compiling. Only here for people who use Eclipse or other IDEs.

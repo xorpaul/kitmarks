@@ -1,0 +1,3 @@
+mysql-connector-java-3.0.10-stable-bin.jar comes from
+
+http://www.mysql.com/downloads/api-jdbc-stable.html

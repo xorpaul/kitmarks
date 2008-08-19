@@ -1,0 +1,434 @@
+#manage_container {
+	height: 600px;
+	min-height: 600px;
+	max-height: 600px;
+	width: 100%;
+	max-width: 100%;
+	margin: 0px;
+	border: 1px #BBBBBB solid;
+	white-space: nowrap;
+}
+
+#manage_loading {
+	background-image: url(../images/acorn_bg.png);
+	background-color: #E0E0E0;
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 100%;
+	max-height: 100%;
+	min-height: 100%;
+	width: 100%;
+	min-width: 100%;
+	max-width: 100%;
+	white-space: nowrap;
+	vertical-align: middle;
+}
+
+#manage_loading_status {
+	padding-top: 150px;
+	border: 0px;
+	color: black;
+	font-size: 12px;
+	font-weight: bold;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+#manage_progress {
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+	height: 15px;
+	max-height: 15px; /* for IE */
+	border: 1px #BBBBBB solid;
+}
+
+#manage_progress_fill {
+	width: 0%;
+	padding: 0px;
+	margin: 0px;
+	height: 15px;
+	max-height: 15px; /* for IE */
+	background-color: green;
+}
+
+#manage_main {
+	display: none;
+	height: 100%;
+	max-height: 100%; /* for IE */
+	min-height: 100%; /* for IE */
+	width: 100%;
+	min-width: 100%; /* for IE */
+	max-width: 100%; /* for IE */
+	white-space: nowrap;
+	vertical-align: middle;
+}
+
+#manage_panes {
+	height: 570px;
+	max-height: 570px; /* for IE */
+	width: 100%;
+	max-width: 100%;
+	border-bottom: 1px #BBBBBB solid;
+	white-space: nowrap;
+	table-layout: fixed;
+}
+
+#manage_tree_div { /*Navigationsleiste Links - Ordnerhierarchie*/
+	overflow: auto;
+	width: 100%;
+	height: 570px;
+	max-height: 570px; /* for IE */
+	white-space: nowrap;
+	vertical-align: top;
+	position: static;
+	cursor: default;
+}
+
+#manage_tree {
+	overflow: hidden;
+	height: 100%;
+	max-height: 100%; /* for IE */
+	width: 33%;
+	white-space: nowrap;
+	vertical-align: top;
+	border-right: 1px #BBBBBB solid;
+	cursor: default;
+}
+
+#manage_list { /*Navigationsleiste Rechts - Bookmarknavigation*/
+	overflow: hidden;
+	height: 570px;
+	max-height: 570px; /* for IE */
+	width: 66%;
+	white-space: nowrap;
+	vertical-align: top;
+	cursor: default;
+}
+
+#manage_list_div {
+	overflow: auto;
+	width: 100%;
+	height: 100%;
+	max-height: 100%; /* for IE */
+	white-space: nowrap;
+	vertical-align: top;
+	cursor: default;
+}
+
+#manage_bar {
+	background-image: url(../images/manage_bar.png);
+	background-repeat: repeat-x;
+	left: 0px;
+	top: 0px;
+	overflow: hidden;
+	height: 30px;
+	max-height: 30px; /* for IE */
+	width: 100%;
+	white-space: nowrap;
+	border-bottom: 1px #BBBBBB solid;
+}
+
+#manage_bar_table {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.manage_bar_title {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 14px;
+	color: Black;
+}
+
+a.manage_bar_actions {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 10px;
+	color: Green;
+	cursor: pointer;
+	white-space: nowrap;
+	text-decoration: none;
+	position: relative;
+}
+
+a.manage_bar_actions:hover {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 10px;
+	color: blue;
+	cursor: pointer;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+#manage_status_bar {
+	overflow: hidden;
+	height: 15px;
+	min-height: 15px; /* for IE */
+	max-height: 15px; /* for IE */
+	width: 100%;
+	font-size: 10px;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	padding-left: 3px;
+	color: #AAAAAA;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+#manage_sort_menu {
+	min-height: 50px; /* for IE */
+	max-height: 50px; /* for IE */
+	width: 100px;
+	font-size: 10px;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	padding: 3px;
+	white-space: nowrap;
+	background-color: #EEEEEE;
+	border: 1px solid gray;
+	text-align: center;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 99999;
+	visibility: hidden;
+}
+
+.folder_child {
+	position: relative !important;
+	top: 0px !important;
+	left: 17px !important; /* how far each level is indented */
+}
+
+a.tree_nodes {
+	padding-left: 3px;
+	padding-right: 3px;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: black;
+	font-weight: normal;
+	font-size: 12px;
+	cursor: pointer;
+	background-color: Transparent;
+	text-decoration: none;
+}
+
+a.tree_nodes:hover {
+	padding-left: 3px;
+	padding-right: 3px;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: green;
+	font-weight: bold;
+	font-size: 12px;
+	cursor: pointer;
+	background-color: Transparent;
+	text-decoration: none;
+}
+
+a.tree_selected {
+	padding-left: 3px;
+	padding-right: 3px;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: white;
+	font-weight: bold;
+	font-size: 12px;
+	cursor: pointer;
+	background-color: green;
+	text-decoration: none;
+}
+
+a.tree_drag_over {
+	padding-left: 3px;
+	padding-right: 3px;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: white;
+	font-weight: bold;
+	font-size: 12px;
+	cursor: pointer;
+	background-color: lightgreen;
+	text-decoration: none;
+}
+
+a.list_nodes {
+	padding-left: 3px;
+	padding-right: 6px;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: black;
+	font-weight: normal;
+	font-size: 12px;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+a.list_nodes:hover {
+	padding-left: 3px;
+	padding-right: 6px;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: green;
+	font-weight: bold;
+	font-size: 12px;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.list_node_1 {
+	background-color: #F1F1F1;
+	width: 100%;
+	max-width: 100%;
+	height: 20px;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: black;
+	font-weight: normal;
+	font-size: 12px;
+	cursor: pointer;
+	white-space: nowrap;
+	display: block;
+}
+
+.list_node_2 {
+	background-color: white;
+	width: 100%;
+	max-width: 100%;
+	height: 20px;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: black;
+	font-weight: normal;
+	font-size: 12px;
+	cursor: pointer;
+	white-space: nowrap;
+	display: block;
+}
+
+.list_node_hover {
+	background-color: lightgreen;
+	width: 100%;
+	max-width: 100%;
+	height: 20px;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: black;
+	font-weight: normal;
+	font-size: 12px;
+	cursor: pointer;
+	white-space: nowrap;
+	display: block;
+}
+
+#item_action_menu {
+	width: 100%;
+	height: 20px;
+	white-space: nowrap;
+}
+
+.action_menu {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: black;
+}
+
+.panel_label {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: black;
+}
+
+.action_panel {
+	background-color: #E0E0E0;
+	background-image: url(../images/action_bg.png);
+	background-repeat: repeat-x;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	vertical-align: middle;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: black;
+	font-weight: bold;
+}
+
+.list_node_selected {
+	background-color: LightYellow;
+	width: 100%;
+	max-width: 100%;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: white;
+	font-weight: bold;
+	font-size: 12px;
+	cursor: pointer;
+	/*overflow: hidden;*/
+	white-space: nowrap;
+	display: block;
+	border-top: solid 1px #BBBBBB;
+	border-bottom: solid 1px #BBBBBB;
+	padding-bottom: 5px;
+}
+
+.listitem_table {
+	width: 100%;
+	max-width: 100%;
+	height: 20px;
+	max-height: 20px;
+	overflow: hidden;
+	white-space: nowrap;
+	table-layout: fixed;
+}
+
+.listitem_table_icon {
+	width: 15px;
+	max-width: 15px;
+	height: 20px;
+	max-height: 20px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.listitem_table_text {
+	height: 20px;
+	max-height: 20px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	text-align: left;
+}
+
+.listitem_table_action {
+	width: 45px;
+	max-width: 45px;
+	height: 20px;
+	max-height: 20px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-align: right;
+}
+
+.panel_description_text {
+	white-space: normal;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	font-size: 12px;
+	color: Black;
+	border-bottom: solid 1px #BBBBBB;
+}
+
+.panel_title_text {
+	white-space: nowrap;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 14px;
+	color: Black;
+}
+
+/* Drag & Drop */
+#imageContainer {
+	position: absolute;
+	z-index: 99999;
+	visibility: hidden;
+}
+
+.url {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: green;
+	text-decoration: none;
+}

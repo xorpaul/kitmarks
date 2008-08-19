@@ -1,0 +1,18 @@
+<Context>
+
+<!-- hier Benutzername und Passwort der MySQL Datenbank ggf. ändern 
+besonders die URL url="jdbc:mysql://localhost/chipmark?autoReconnect=true" />
+muss auf den Datenbanknamen abgeändert werden.
+-->
+
+	<Resource name="jdbc/ChipmarkDB" auth="Container"
+		type="javax.sql.DataSource" username="" password=""
+		driverClassName="com.mysql.jdbc.Driver"
+		url="jdbc:mysql://localhost/chipmark?autoReconnect=true" />
+	<Resource name="UserTransaction" auth="Container"
+		type="javax.transaction.UserTransaction"
+		factory="org.objectweb.jotm.UserTransactionFactory" jotm.timeout="60" />
+	<Manager className="org.apache.catalina.session.PersistentManager"
+		saveOnRestart="false" />
+
+</Context>

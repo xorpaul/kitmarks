@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+  <result>
+    <status>SUCCESS</status>
+    <message></message>
+  </result>
+  <buddylist>
+    <buddy>
+      <username>username</username>
+      <nickname>Jon</nickname>
+    </buddy>
+    <buddy>
+      <username>username</username>
+      <nickname>Linda</nickname>
+    </buddy>
+  </buddylist>
+</xml>

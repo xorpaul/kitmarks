@@ -1,0 +1,22 @@
+div.suggestions {
+	position: absolute;
+	background-color: #ffffff;
+	text-align: left;
+	border: 1px solid #000000;
+	z-index: 100;
+	width: 100px;
+}
+
+div.suggestions div {
+	cursor: default;
+	padding: 0px 3px;
+	background-color: #ffffff;
+	width: 100%;
+}
+
+div.suggestions div.current {
+	background-color: #3366cc;
+	color: white;
+	padding: 0px 3px;
+	width: 100%;
+}

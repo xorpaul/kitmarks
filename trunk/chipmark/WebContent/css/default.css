@@ -1,0 +1,344 @@
+body {
+	color: #000000;
+	background-color: #E1E1E1;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+hr {
+	border: 0;
+	color: #EEEEEE;
+	background-color: #EEEEEE;
+	height: 1px;
+	width: 98%;
+	text-align: center;
+}
+
+a:link,a:visited {
+	color: #007b92;
+}
+
+a:hover {
+	color: green;
+}
+
+a.navigation,a.navigation:visited {
+	color: #007b92;
+	font-size: 14px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	text-align: center;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+a.navigation:hover {
+	color: #AA0000;
+	font-size: 14px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	text-align: center;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+a.breadcrumbs,a.breadcrumbs:visited {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #AAAAAA;
+	text-decoration: none;
+}
+
+a.breadcrumbs:hover {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: green;
+}
+
+.breadcrumbs {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #AAAAAA;
+}
+
+.body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;
+	text-align: left;
+}
+
+.copyright {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #666666;
+	text-align: right;
+}
+
+a.login_module_actions,a.login_module_actions:visited,a.login_module_actions:active
+	{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #666666;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a.login_module_actions:hover {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: green;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.small_text {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #AAAAAA;
+	text-align: right;
+	padding-top: 4px;
+}
+
+#headleft {
+	background-image: url(../images/design/headleft.gif);
+	background-repeat: no-repeat;
+	width: 10px;
+	height: 98px;
+}
+
+#headmid {
+	background-image: url(../images/design/headmid.gif);
+	background-repeat: repeat-x;
+	height: 98px;
+}
+
+#headright {
+	background-image: url(../images/design/headright.gif);
+	background-repeat: no-repeat;
+	width: 10px;
+	height: 98px;
+}
+
+#navbarleft {
+	background-image: url(../images/design/navbarleft.gif);
+	background-repeat: no-repeat;
+	width: 10px;
+	height: 31px;
+}
+
+#navbarmid {
+	background-image: url(../images/design/navbarmid.gif);
+	background-repeat: repeat-x;
+	height: 31px;
+}
+
+#navbarright {
+	background-image: url(../images/design/navbarright.gif);
+	background-repeat: no-repeat;
+	width: 10px;
+	height: 31px;
+}
+
+#mainbox_ul {
+	background-image: url(../images/design/mainbox_ul.gif);
+	background-repeat: no-repeat;
+	width: 10px;
+	height: 10px;
+}
+
+#mainbox_ur {
+	background-image: url(../images/design/mainbox_ur.gif);
+	background-repeat: no-repeat;
+	width: 10px;
+	height: 10px;
+}
+
+#mainbox_ll {
+	background-image: url(../images/design/mainbox_ll.gif);
+	background-repeat: no-repeat;
+	width: 10px;
+	height: 10px;
+}
+
+#mainbox_lr {
+	background-image: url(../images/design/mainbox_lr.gif);
+	background-repeat: no-repeat;
+	width: 10px;
+	height: 10px;
+}
+
+#mainbox_um {
+	background-image: url(../images/design/mainbox_um.gif);
+	background-repeat: repeat-x;
+	height: 10px;
+}
+
+#mainbox_lm {
+	background-image: url(../images/design/mainbox_lm.gif);
+	background-repeat: repeat-x;
+	height: 10px;
+}
+
+#mainbox_ml {
+	background-image: url(../images/design/mainbox_ml.gif);
+	background-repeat: repeat-y;
+	width: 10px;
+}
+
+#mainbox_mr {
+	background-image: url(../images/design/mainbox_mr.gif);
+	background-repeat: repeat-y;
+	width: 10px;
+}
+
+#mainbox_mm {
+	background-color: white;
+}
+
+table.module {
+	table-layout: fixed;
+	width: 200px;
+}
+
+.module_title_left {
+	background-image: url(../images/design/module_title_left.gif);
+	background-repeat: no-repeat;
+	height: 17px;
+	width: 5px;
+}
+
+.module_title_mid {
+	background-image: url(../images/design/module_title_mid.gif);
+	background-repeat: repeat-x;
+	height: 17px;
+	font-weight: bold;
+	color: #007b92;
+	font-size: 12px;
+}
+
+.module_title_right {
+	background-image: url(../images/design/module_title_right.gif);
+	background-repeat: no-repeat;
+	height: 17px;
+	width: 5px;
+}
+
+.module_frame_content_left {
+	border-left: 1px #E1E1E1 solid;
+	width: 3px;
+}
+
+.module_frame_content_mid {
+	
+}
+
+.module_frame_content_right {
+	border-right: 1px #E1E1E1 solid;
+	width: 3px;
+}
+
+.module_frame_ll {
+	background-image: url(../images/design/module_frame_ll.gif);
+	background-repeat: no-repeat;
+	height: 7px;
+	width: 5px;
+}
+
+.module_frame_lm {
+	border-bottom: 1px #E1E1E1 solid;
+	height: 7px;
+}
+
+.module_frame_lr {
+	background-image: url(../images/design/module_frame_lr.gif);
+	background-repeat: no-repeat;
+	height: 7px;
+	width: 5px;
+}
+
+/* ********************************************************* */
+	/* Text Field Styles                                         */
+	/* ********************************************************* */
+.inputtext {
+	border: 1px solid #CCCCCC;
+	padding: 3px;
+	font-size: 11px;
+}
+
+.inputsearch {
+	background: white url(../images/searchicon.png) no-repeat 3px 4px;
+	padding-left: 17px;
+}
+
+.sub_header {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #007b92;
+	font-weight: bold;
+	/*letter-spacing:   0.1em;*/
+}
+
+.sub_content {
+	padding-left: 14px;
+	font-size: 12px;
+}
+
+.content {
+	font-size: 12px;
+}
+
+.img_link {
+	border-width: 0px;
+}
+
+.list {
+	color: #007b92;
+	text-align: left;
+	list-style-type: disc;
+}
+
+.list_hack {
+	color: black;
+}
+
+.front_page {
+	border: 1px #DDDDDD solid;
+	font-size: 12px;
+}
+
+.front_title {
+	color: #007b92;
+	font-weight: bold;
+}
+
+.front_sub_title {
+	
+}
+
+.front_list {
+	font-size: 14px;
+}
+
+.download_option {
+	color: green;
+	display: none;
+}
+
+.download_body {
+	display: none;
+}
+
+.body_headers {
+	font-weight: bold;
+}
+
+ul.chip_list {
+	list-style-image: url(images/acorn16.png);
+}
+
+.graybox {
+	background-color: #FAFAFA;
+	border: 1px dotted black;
+}

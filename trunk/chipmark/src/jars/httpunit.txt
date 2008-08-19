@@ -1,0 +1,46 @@
+Got from httpunit-1.5.4 package, the lib directory.
+Used for httpunit.
+
+See http://httpunit.sourceforge.net/ for more info (e.g., javadoc).
+
+Has the following patch to implement getMimeType() needed by our img
+servlet.  I got the patch from
+http://www.simongbrown.com/blog/2003/12/09/1071008482000.html (more
+or less).
+
+
+
+% diff -p foo ServletUnitServletContext.java
+*** foo Thu Aug 21 05:29:14 2003
+--- ServletUnitServletContext.java      Thu Jan  8 15:33:17 2004
+*************** import java.io.File;
+*** 24,31 ****
+--- 24,33 ----
+  import java.io.FileInputStream;
+  import java.io.FileNotFoundException;
+
++ import java.net.FileNameMap;
+  import java.net.URL;
+  import java.net.MalformedURLException;
++ import java.net.URLConnection;
+
+  import java.util.Enumeration;
+  import java.util.Hashtable;
+*************** class ServletUnitServletContext implemen
+*** 85,91 ****
+       * "text/html" and "image/gif".
+       **/
+      public java.lang.String getMimeType( String filePath ) {
+!         return null;  // XXX not implemented
+      }
+
+
+--- 87,95 ----
+       * "text/html" and "image/gif".
+       **/
+      public java.lang.String getMimeType( String filePath ) {
+!         FileNameMap fileNameMap = URLConnection.getFileNameMap();
+!         String mimeType = fileNameMap.getContentTypeFor(filePath);
+!         return mimeType;
+      }
+

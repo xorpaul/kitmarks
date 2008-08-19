@@ -1,0 +1,526 @@
+<?xml version="1.0" ?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+	<!-- Note: Editing this file is tricky. All entities must appear in the -->
+	<!-- correct order.  Placing an item in the wrong place will result in  -->
+	<!-- parsing errors.  Thus, filters must come before servlets, etc.     -->
+	<!-- The parse error message generates the list of elements in order.   -->
+
+	<!-- FILTERS -->
+
+	<filter>
+		<filter-name>Compress</filter-name>
+		<filter-class>bookmarks.filters.gzip.GZIPFilter</filter-class>
+	</filter>
+	<filter>
+		<filter-name>LoggingFilter</filter-name>
+		<filter-class>bookmarks.filters.LoggingFilter</filter-class>
+	</filter>
+	<!-- Possible future filters
+		
+		<filter>
+		<filter-name>AuthenticateCookie</filter-name>
+		<filter-class>bookmarks.filters.auth.AuthFilter</filter-class>
+		<init-param>
+		<param-name>AuthenticationLevel</param-name>
+		<param-value>cookie</param-value>
+		</init-param>
+		</filter>
+		
+		<filter>
+		<filter-name>AuthenticateSession</filter-name>
+		<filter-class>bookmarks.filters.auth.AuthFilter</filter-class>
+		<init-param>
+		<param-name>AuthenticationLevel</param-name>
+		<param-value>session</param-value>
+		</init-param>
+		</filter>
+		
+		<filter>
+		<filter-name>AuthenticateAlways</filter-name>
+		<filter-class>bookmarks.filters.auth.AuthFilter</filter-class>
+		<init-param>
+		<param-name>AuthenticationLevel</param-name>
+		<param-value>always</param-value>
+		</init-param>
+		</filter>
+	-->
+
+	<!-- FILTER MAPPINGS -->
+
+	<filter-mapping>
+		<filter-name>Compress</filter-name>
+		<url-pattern>/GetFoldersAndLinks</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>LoggingFilter</filter-name>
+		<url-pattern>/BuddyList</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>LoggingFilter</filter-name>
+		<url-pattern>/Login</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>LoggingFilter</filter-name>
+		<url-pattern>/GetFoldersAndLinks</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>LoggingFilter</filter-name>
+		<url-pattern>/Logout</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>LoggingFilter</filter-name>
+		<url-pattern>/NodeAction</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>LoggingFilter</filter-name>
+		<url-pattern>/Top10Bookmarked</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>LoggingFilter</filter-name>
+		<url-pattern>/BuddyList</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>LoggingFilter</filter-name>
+		<url-pattern>/Inbox</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>LoggingFilter</filter-name>
+		<url-pattern>/Main</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>LoggingFilter</filter-name>
+		<url-pattern>/Manage</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>LoggingFilter</filter-name>
+		<url-pattern>/ManageBuddies</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>LoggingFilter</filter-name>
+		<url-pattern>/AccountPreferences</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>LoggingFilter</filter-name>
+		<url-pattern>/AddClient</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>LoggingFilter</filter-name>
+		<url-pattern>/AddLink</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>LoggingFilter</filter-name>
+		<url-pattern>/EditLink</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>LoggingFilter</filter-name>
+		<url-pattern>/Export</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>LoggingFilter</filter-name>
+		<url-pattern>/ForgotPassword</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>LoggingFilter</filter-name>
+		<url-pattern>/Random</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>LoggingFilter</filter-name>
+		<url-pattern>/RemoveLink</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>LoggingFilter</filter-name>
+		<url-pattern>/SearchLinks</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>LoggingFilter</filter-name>
+		<url-pattern>/SearchUser</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>LoggingFilter</filter-name>
+		<url-pattern>/ViewLinks</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>LoggingFilter</filter-name>
+		<url-pattern>/Import</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>LoggingFilter</filter-name>
+		<url-pattern>/MostRecentlyAdded</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>LoggingFilter</filter-name>
+		<url-pattern>/UpdateBookmarkOrder</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>LoggingFilter</filter-name>
+		<url-pattern>/DeleteLink</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>LoggingFilter</filter-name>
+		<url-pattern>/ShareFolder</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>LoggingFilter</filter-name>
+		<url-pattern>/ErrorServlet</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>LoggingFilter</filter-name>
+		<url-pattern>/AutosuggestServlet</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>LoggingFilter</filter-name>
+		<url-pattern>/RecommenderServlet</url-pattern>
+	</filter-mapping>
+
+	<!-- REGULAR SERVLET SETUP -->
+
+	<servlet>
+		<servlet-name>FacebookRegistration</servlet-name>
+		<servlet-class>
+			bookmarks.facebookApp.FacebookRegistrationServlet
+		</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>FacebookApp</servlet-name>
+		<servlet-class>
+			bookmarks.facebookApp.FacebookAppServlet
+		</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>BuddyList</servlet-name>
+		<servlet-class>
+			bookmarks.buddylist.BuddyListServlet
+		</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>Inbox</servlet-name>
+		<servlet-class>bookmarks.buddylist.InboxServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>Main</servlet-name>
+		<servlet-class>bookmarks.Main</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Manage</servlet-name>
+		<servlet-class>bookmarks.Manage</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ManageBuddies</servlet-name>
+		<servlet-class>bookmarks.ManageBuddies</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>GetFoldersAndLinks</servlet-name>
+		<servlet-class>bookmarks.GetFoldersAndLinks</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>NodeAction</servlet-name>
+		<servlet-class>bookmarks.NodeAction</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AccountPreferences</servlet-name>
+		<servlet-class>bookmarks.AccountPreferences</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AddClient</servlet-name>
+		<servlet-class>bookmarks.AddClient</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AddLink</servlet-name>
+		<servlet-class>bookmarks.AddLink</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>EditLink</servlet-name>
+		<servlet-class>bookmarks.EditLink</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Export</servlet-name>
+		<servlet-class>bookmarks.Export</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ForgotPassword</servlet-name>
+		<servlet-class>bookmarks.ForgotPassword</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Login</servlet-name>
+		<servlet-class>bookmarks.LoginServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Logout</servlet-name>
+		<servlet-class>bookmarks.LogoutServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Random</servlet-name>
+		<servlet-class>bookmarks.Random</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>RemoveLink</servlet-name>
+		<servlet-class>bookmarks.RemoveLink</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SearchLinks</servlet-name>
+		<servlet-class>bookmarks.SearchLinks</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SearchUser</servlet-name>
+		<servlet-class>bookmarks.SearchUser</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Top10Bookmarked</servlet-name>
+		<servlet-class>bookmarks.Top10Bookmarked</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ViewLinks</servlet-name>
+		<servlet-class>bookmarks.ViewLinks</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Import</servlet-name>
+		<servlet-class>bookmarks.Import</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>MostRecentlyAdded</servlet-name>
+		<servlet-class>bookmarks.MostRecentlyAdded</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>UpdateBookmarkOrder</servlet-name>
+		<servlet-class>bookmarks.UpdateBookmarkOrder</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DeleteLink</servlet-name>
+		<servlet-class>bookmarks.DeleteLink</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ShareFolder</servlet-name>
+		<servlet-class>bookmarks.ShareFolder</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ErrorServlet</servlet-name>
+		<servlet-class>bookmarks.ErrorServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>AutosuggestServlet</servlet-name>
+		<servlet-class>bookmarks.AutosuggestServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>RecommenderServlet</servlet-name>
+		<servlet-class>
+			bookmarks.recommender.RecommenderServlet
+		</servlet-class>
+	</servlet>
+
+	<!-- REGULAR SERVLET MAPPINGS -->
+
+	<servlet-mapping>
+		<servlet-name>FacebookApp</servlet-name>
+		<url-pattern>/FacebookApp</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>FacebookRegistration</servlet-name>
+		<url-pattern>/FacebookRegistration</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>BuddyList</servlet-name>
+		<url-pattern>/BuddyList</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>Inbox</servlet-name>
+		<url-pattern>/Inbox</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MostRecentlyAdded</servlet-name>
+		<url-pattern>/MostRecentlyAdded</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Import</servlet-name>
+		<url-pattern>/Import</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Manage</servlet-name>
+		<url-pattern>/Manage</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ManageBuddies</servlet-name>
+		<url-pattern>/ManageBuddies</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GetFoldersAndLinks</servlet-name>
+		<url-pattern>/GetFoldersAndLinks</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Main</servlet-name>
+		<url-pattern>/Main</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>NodeAction</servlet-name>
+		<url-pattern>/NodeAction</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AccountPreferences</servlet-name>
+		<url-pattern>/AccountPreferences</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AddClient</servlet-name>
+		<url-pattern>/AddClient</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AddLink</servlet-name>
+		<url-pattern>/AddLink</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DeleteLink</servlet-name>
+		<url-pattern>/DeleteLink</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EditLink</servlet-name>
+		<url-pattern>/EditLink</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Export</servlet-name>
+		<url-pattern>/Export</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ForgotPassword</servlet-name>
+		<url-pattern>/ForgotPassword</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Login</servlet-name>
+		<url-pattern>/Login</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Logout</servlet-name>
+		<url-pattern>/Logout</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RemoveLink</servlet-name>
+		<url-pattern>/RemoveLink</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Top10Bookmarked</servlet-name>
+		<url-pattern>/Top10Bookmarked</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ViewLinks</servlet-name>
+		<url-pattern>/ViewLinks</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SearchLinks</servlet-name>
+		<url-pattern>/SearchLinks</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SearchUser</servlet-name>
+		<url-pattern>/SearchUser</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Random</servlet-name>
+		<url-pattern>/Random</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UpdateBookmarkOrder</servlet-name>
+		<url-pattern>/UpdateBookmarkOrder</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ShareFolder</servlet-name>
+		<url-pattern>/ShareFolder</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ErrorServlet</servlet-name>
+		<url-pattern>/ErrorServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>AutosuggestServlet</servlet-name>
+		<url-pattern>/AutosuggestServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>RecommenderServlet</servlet-name>
+		<url-pattern>/RecommenderServlet</url-pattern>
+	</servlet-mapping>
+
+	<!-- WELCOME FILE LIST -->
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+
+	<error-page>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/ErrorServlet</location>
+	</error-page>
+
+	<!-- Mime mappings -->
+	<mime-mapping>
+		<extension>msi</extension>
+		<mime-type>application/octet-stream</mime-type>
+	</mime-mapping>
+
+
+	<!-- JDBC CONNECTION POOLING SETUP -->
+
+	<resource-ref>
+		<description>Chipmark data source.</description>
+		<res-ref-name>jdbc/ChipmarkDB</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref>
+
+
+
+	<!-- SECURITY CONSTRAINTS (add users in the tomcat-users.xml) -->
+	<!-- SECURITY ROLES -->
+
+	<resource-ref>
+
+		<description>MySQL DB Connection</description>
+
+		<res-ref-name>jdbc/ChipmarkDB</res-ref-name>
+
+		<res-type>javax.sql.DataSource</res-type>
+
+		<res-auth>Container</res-auth>
+
+	</resource-ref>
+
+</web-app>

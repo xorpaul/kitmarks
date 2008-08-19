@@ -1,0 +1,5 @@
+mail.jar came from /project/Grouplens/java/classes/public/mail.jar
+
+
+
+Not used for compiling. Only here for people who use Eclipse or other IDEs.
