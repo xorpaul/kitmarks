@@ -1,60 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-  <xsl:output encoding="UTF-8" method="html" indent="yes"/>
-
-  <xsl:template match="/">
-
-    <!--
-*************************************************************************************************
-Copyright 2004-2007 Chipmark.
-
-This file is part of Chipmark.
-
-Chipmark is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 2 of the License, or
-(at your option) any later version.
-
-Chipmark is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with Chipmark; if not, write to the Free Software
-Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-*************************************************************************************************
--->
-  </xsl:template>
-
-  <!-- ===================================================================== -->
-  <!-- BODY_BUDDIES                                                          -->
-  <!-- ===================================================================== -->
-  <xsl:template name="BODY_BUDDIES">
-    <p class="title">buddies</p>
-    <center>
-      <script language="JavaScript">
-        showBuddyRequests(1);
-        initBuddies();
-      </script>
-      <noscript>
-        <span class="small_text">
-          This feature requires that javascript is enabled.  If you wish to use this feature, please <a href="Main?target=jshowto">enable javascript</a> in your browser.
-          <br/>
-        </span>
-      </noscript>
-    </center>
-  </xsl:template>
-
-
-  <!-- ===================================================================== -->
-  <!-- BODY_MANAGE_CHIPMARKS (LABEL VIEW)                                    -->
-  <!-- ===================================================================== -->
-  <xsl:template name="BODY_MANAGE_CHIPMARKS_LABEL_VIEW">
-
-	  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td class="header" width="200">&#160;&#160;my chipmarks</td>
+<xsl:stylesheet version="1.0"
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<xsl:output encoding="UTF-8" method="html" indent="yes" />
+	<xsl:template match="/">
+		<!--
+			*************************************************************************************************
+			Copyright 2004-2007 Chipmark. This file is part of Chipmark. Chipmark
+			is free software; you can redistribute it and/or modify it under the
+			terms of the GNU General Public License as published by the Free
+			Software Foundation; either version 2 of the License, or (at your
+			option) any later version. Chipmark is distributed in the hope that
+			it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+			warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See
+			the GNU General Public License for more details. You should have
+			received a copy of the GNU General Public License along with
+			Chipmark; if not, write to the Free Software Foundation, Inc., 59
+			Temple Place, Suite 330, Boston, MA 02111-1307 USA
+			*************************************************************************************************
+		-->
+	</xsl:template>
+	<!--
+		=====================================================================
+	-->
+	<!--
+		BODY_BUDDIES
+	-->
+	<!--
+		=====================================================================
+	-->
+	<xsl:template name="BODY_BUDDIES">
+		<p class="title">buddies</p>
+		<center>
+			<script language="JavaScript"> showBuddyRequests(1); initBuddies();
+			</script>
+			<noscript>
+				<span class="small_text">
+					This feature requires that javascript is enabled. If you wish to
+					use this feature, please
+					<a href="Main?target=jshowto">enable javascript</a>
+					in your browser.
+					<br />
+				</span>
+			</noscript>
+		</center>
+	</xsl:template>
+	<!--
+		=====================================================================
+	-->
+	<!--
+		BODY_MANAGE_CHIPMARKS (LABEL VIEW)
+	-->
+	<!--
+		=====================================================================
+	-->
+	<xsl:template name="BODY_MANAGE_CHIPMARKS_LABEL_VIEW">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td class="header" width="200">&#160;&#160;my chipmarks</td>
         <td class="body">
           <a href="Manage">folder view</a>
           <b> :: label view</b>
@@ -564,7 +566,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 			  <xsl:call-template name="BODY_MAIN"/>
 		  </xsl:when>
 		  <xsl:otherwise>
-			  <p class="header">import your browser bookmarks TEST DEUTSCH</p>
+			  <p class="header">Importieren der Browser Bookmarks</p>
 			  <xsl:if test="//Result != 'SUCCESS'">
 				  <p>
 					  <font color="red">
@@ -579,13 +581,13 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 						  <form method="post" enctype="multipart/form-data" action="Import">
 							  <input type="radio" name="permission" value="public" checked="checked" />
-							  <span class="body" style="padding-right: 5ex;">import as public</span>
+							  <span class="body" style="padding-right: 5ex;">Als öffentlich importieren</span>
 							  <input type="radio" name="permission" value="private" />
-							  <span class="body">import as private</span>
+							  <span class="body">Als privat importieren</span>
 							  <p class="body">
-								  <a href="#publicprivate">What do public and private mean?</a>
+								  <a href="#publicprivate">Was bedeutet öffentlich oder privat?</a>
 								  <br/>
-								  <i>note: If you are importing bookmarks that were exported from Chipmark, your public/private designations will be retained for each link.</i>
+								  <i>Hinweis: Von der Anwendung selbst exportierte Linksammlung behalten ihre ursprüngliche öffentlich/privat Kennzeichnung bei.</i>
 							  </p>
 							  <table>
 								  <tr>
@@ -593,12 +595,13 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 										  <input type="file" size="20" name="fname" />
 									  </td>
 									  <td>
-										  <input type="Submit" value="import" />
+										  <input type="Submit" value="Importieren" />
 									  </td>
 								  </tr>
 							  </table>
 						  	  <p class="body">
-								<em>Important: This may take a while depending on the amount of bookmarks you have. The maximum allowed file size is 10 MB.</em>
+								<em>Achtung: Die Dauer der Importierung kann abhängig der Anzahl der Lesezeichen variieren.
+								Die maximale Dateigrösse ist 10 MB.</em>
 						  	  </p>
 						  </form>
 						  <br/>
@@ -610,78 +613,53 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 								  </td>
 								  <td>
 									  <p class="subheader" id="firefox">
-										  how to import bookmarks for firefox users:
+									  Anleitung zum Importieren der Lesezeichen aus dem Firefox Internetbrowser:
 									  </p>
 									  <ol>
-										  <li>Select "Manage Bookmarks..." from the Bookmarks menu in Firefox.</li>
-										  <li>A window titled "Bookmarks Manager" should open.</li>
-										  <li>In the "Bookmarks Manager" window, select "Export..." from the File menu.</li>
-										  <li>Save the file to disk, remembering where you saved the file.</li>
-										  <li>Select "import as public" or "import as private" from above. For more information on public vs. private chipmarks see below.</li>
-										  <li>Press the "Browse..." button above.</li>
-										  <li>Locate and select the file you saved in step 4, then press the "Open" button.</li>
-										  <li>Press the "import" button to import your bookmarks.</li>
+										  <li>Aufrufen der Lesezeichenverwaltung durch "Lesezeichen verwalten" des "Lesezeichen" Menüs.</li>
+										  <li>Ein Fenster mit dem Namen "Bibliothek" sollte sich nun öffnen.</li>
+										  <li>Unter dem Menü "Importieren und Backup" den Eintrag "HTML exportieren" auswählen.</li>
+										  <li>Den Speicherort auswählen und merken.</li>
+										  <li>Auswählen, ob die Lesezeichen als öffentlich oder als privat importiert werden.</li>
+										  <li>Diese Datei dann oben durch die Schaltfläche "Durchsuchen" angeben. </li>
+										  <li>Am Schluss die Datei durch die Schaltfläche "Importieren" importieren.</li>
 									  </ol>
 									  <br/>
 								  </td>
 							  </tr>
 							  <tr>
 								  <td valign="top">
-									  <img style="border: 0;" alt="mozilla" src="images/mozilla_logo.gif"/><br />mozilla<br /><br />
-									  <img style="border: 0;" alt="netscape" src="images/netscape_logo.gif"/><br />netscape
-								  </td>
-								  <td>
-									  <p class="subheader" id="mozilla">
-										  how to import bookmarks for netscape/mozilla users:
-									  </p>
-									  <ol>
-										  <li>Select "Manage Bookmarks" from the Bookmarks menu in Mozilla.</li>
-										  <li>A window titled "Bookmarks Manager" should open.</li>
-										  <li>In the "Bookmarks Manager" window, select "Export." from the Tools menu.</li>
-										  <li>Save the file to disk, remembering where you saved the file.</li>
-										  <li>Select "import as public" or "import as private" from above. For more information on public vs. private chipmarks see below.</li>
-										  <li>Press the "Browse..." button above.</li>
-										  <li>Locate and select the file you saved in step 4, then press the "Open" button.</li>
-										  <li>Press the "import" button to import your bookmarks.</li>
-									  </ol>
-									  <br/>
-								  </td>
-							  </tr>
-							  <tr>
-								  <td valign="top">
-									  <img style="border: 0pt none ;" alt="internet explorer" src="images/ie7_logo.gif" /><br />internet explorer
+									  <img style="border: 0pt none ;" alt="internet explorer" src="images/ie7_logo.gif" /><br />Internet Explorer
 								  </td>
 								  <td>
 									  <p class="subheader" id="ie">
-										  how to import bookmarks for internet explorer users:
+										  Anleitung zum Importieren der Lesezeichen aus dem Internet Explorer:
 									  </p>
 									  <ol>
-										  <li>Select "Import and Export." from the File menu in Internet Explorer.</li>
-										  <li>Press the "Next" button.</li>
-										  <li>In the left half of the window, select "Export Favorites" and press the "Next" button.</li>
-										  <li>Select the folder which you would like to import (select Favorites to import all).</li>
-										  <li>Save the file to disk by browsing to save point and pressing the "Next" button. (Remember where you saved the file for later on).</li>
-										  <li>Press the "Finish" button.</li>
-										  <li>Select "import as public" or "import as private" from above. For more information on public vs. private chipmarks see below.</li>
-										  <li>Press the "Browse..." button above.</li>
-										  <li>Locate and select the file you saved in step 5, then press the "Open" button.</li>
-										  <li>Press the "import" button to import your bookmarks.</li>
+										  <li>Aufrufen der Lesezeichenverwaltung durch "Importieren und Exportieren" des "Datei" Menüs.</li>
+										  <li>Ein Fenster mit dem Namen "Import/Export-Assistent" sollte sich nun öffnen.</li>
+										  <li>Nach dem Klicken der Schaltfläche "Weiter" die Aktion "Favoriten exportieren" auswählen und wieder auf "Weiter" klicken.</li>
+										  <li>Die gewünschten Favoriten auswählen und mit "Weiter" bestätigen.</li>
+										  <li>Den Speicherort auswählen und nach "Weiter" mit "Fertig stellen" abspeichern.</li>
+										  <li>Auswählen, ob die Lesezeichen als öffentlich oder als privat importiert werden.</li>
+										  <li>Diese Datei dann oben durch die Schaltfläche "Durchsuchen" angeben. </li>
+										  <li>Am Schluss die Datei durch die Schaltfläche "Importieren" importieren.</li>
 									  </ol>
 								  </td>
 							  </tr>
 						  </table>
 						  <name id="publicprivate"/>
-						  <p class="subheader">public vs. private chipmarks</p>
-						  <p class="body">In Chipmark, you can have your bookmarks designated as public or private. If you mark them as public, there are certain features of Chipmark that will allow other users to see your bookmarks.</p>
+						  <p class="subheader">Öffentliche gegen private Chipmarks</p>
+						  <p class="body">In dieser Anwendung können alle Lesezeichen als öffentlich oder als privat gekennzeichnet werden. 
+						  Wenn die Lesezeichen als öffentlich gekennzeichnet wurden, können andere Benutzer diese sich anzeigen lassen.</p>
 						  <ol>
 							  <li>
-								  If someone knows your username, then they will be able to see all of your <em>public</em> bookmarks.
-							  </li>
-							  <li>
-								  Your <em>public</em> bookmarks will appear in the "recently added chipmarks" list.
+								  Alle <em>öffentliche</em> Lesezeichen werden in der "Kürzlich hinzugefügt" Liste angezeigt.
 							  </li>
 						  </ol>
-						  <p class="body">You don't have to have all of your chipmarks be public or all of your chipmarks be private.  However, when importing a list of bookmarks, you need to specify whether they should default to public or to private.</p>
+						  <p class="body">Nicht alle Lesezeichen müssen einheitlich als öffentlich oder privat gekennzeichnet werden. 
+						  Diese Einstellung kann später für jeden Link seperat verändert werden.
+						  Allerdings muss für die Importierung ein Standardwert angegeben werden.</p>
 
 					  </td>
 				  </tr>
@@ -727,29 +705,6 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 										  <li>Select "Manage Bookmarks..." from the Bookmarks menu in Firefox.</li>
 										  <li>A window titled "Bookmarks Manager" should open.</li>
 										  <li>In the "Bookmarks Manager" window, select "Import..." from the File menu.</li>
-										  <li>Locate the file you saved in the first step and press the open button.</li>
-										  <li>Your Chipmarks should now appear under your Bookmarks menu.</li>
-									  </ol>
-									  <br/>
-								  </td>
-							  </tr>
-							  <tr>
-								  <td valign="top">
-									  <img style="border: 0;" alt="mozilla" src="images/mozilla_logo.gif"/><br />mozilla<br /><br />
-									  <img style="border: 0;" alt="netscape" src="images/netscape_logo.gif"/><br />netscape
-								  </td>
-								  <td>
-									  <p class="subheader" id="mozilla">
-										  how to export your chipmarks to netscape/mozilla:
-									  </p>
-									  <form method="post" action="Export">
-										  <input type="submit" name="submitBtn" value="download my chipmarks"/>
-									  </form>
-									  <ol>
-										  <li>Press the "download my chipmarks" button above, and save the file to disk. (Remember where you saved the file.)</li>
-										  <li>Select "Manage Bookmarks..." from the Bookmarks menu in Mozilla.</li>
-										  <li>A window titled "Bookmarks Manager" should open.</li>
-										  <li>In the "Bookmarks Manager" window, select "Import..." from the Tools menu.</li>
 										  <li>Locate the file you saved in the first step and press the open button.</li>
 										  <li>Your Chipmarks should now appear under your Bookmarks menu.</li>
 									  </ol>
