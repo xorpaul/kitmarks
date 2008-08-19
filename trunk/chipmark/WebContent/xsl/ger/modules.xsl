@@ -182,7 +182,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 					<img src="images/spacer.gif"/>
 				</td>
 				<td class="module_title_mid">
-					popular chipmarks
+					Populäre Chipmarks
 				</td>
 				<td class="module_title_right">
 					<img src="images/spacer.gif"/>
@@ -248,7 +248,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 					<img src="images/spacer.gif"/>
 				</td>
 				<td class="module_title_mid">
-					random chipmark
+					Zufällige Chipmark
 				</td>
 				<td class="module_title_right">
 					<img src="images/spacer.gif"/>
@@ -319,7 +319,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 					<img src="images/spacer.gif"/>
 				</td>
 				<td class="module_title_mid">
-					recently added
+					Kürzlich hinzugefügt
 				</td>
 				<td class="module_title_right">
 					<img src="images/spacer.gif"/>

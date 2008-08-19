@@ -29,7 +29,7 @@ package bookmarks;
 
 public class PropertyManager {
 	// Define instance specific information
-	static public String CATALINA_BASE = "C:\\\\Program Files\\\\Apache Software Foundation\\\\Tomcat 6.0\\\\webapps\\\\";
+	static public String CATALINA_BASE = "C:\\\\Programme\\\\Apache Software Foundation\\\\Tomcat 6.0\\\\webapps\\\\";
 	/**
 	 * CATALINA_BASE = unter Linux: "/srv/devtomcat/"; unter Windows:
 	 * "C:\\\\Program Files\\\\Apache Software Foundation\\\\Tomcat 6.0\\\\webapps\\\\"
@@ -49,7 +49,7 @@ public class PropertyManager {
 
 	// Define private information used in the DatabaseWrapper Servlet
 	static public String database_domain = "localhost";
-	static public String database_name = "";
+	static public String database_name = "chipmark";
 	static public String database_user = "";
 	static public String database_password = "";
 	static public int database_max_chipmarks = 5000;
