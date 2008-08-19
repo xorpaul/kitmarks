@@ -183,13 +183,9 @@
 				  <img src="images/tour/ie_browse.png" align="left"/>
 				  <span class="content">
 				  Die Chipmarks werden in der bekannten hierarchischen Ordnerstruktur angezeigt, wie sie auch im Internet
-					Explorer selbst zum Einsatz kommt.
-					  Your chipmarks are displayed in a familar folder structure- much the same 
-					  +way IE normally shows them.  You browse them by navigating through
-					  cascading menus.  Additionally, any bookmarks you designate to be shown on the 
-					  "toolbar" will give you easy 1-click access to chipmarks you use frequently.  You
-					  get quick access to charts such as the Top 10, Recommended and Recently Added
-					   Chipmarks, as well as to randomly selected links.
+					Explorer selbst zum Einsatz kommt. 
+					Auch hier gibt es eine Option eine zsätzliche Toolbar anzuzeigen, die die schnelle Navigation zu häufig besuchten Chipmarks ermöglicht.
+					Die Zusatzfeatures, wie die Top 10 Liste, gerade hinzugefügte Chipmarks oder zufällige Chipmarks werden auch hier angeboten.
 				  </span>
 			  </td>
 		  </tr>
@@ -200,7 +196,7 @@
 			  <tr>
 				  <td valign="right">
 					  <span class="small_text">
-						  <a href="Main?target=registration">sign me up! </a>
+						  <a href="Main?target=registration">Jetzt registrieren </a>
 					  </span>
 				  </td>
 				  <td align="center" valign="middle">
@@ -223,10 +219,9 @@
 			  <td>
 				  <img src="images/tour/ff_buttons.png" align="right"/>
 				  <span class="content">
-					  The extension slides right into Firefox.  It mimics much of the behavior of the regular Firefox Bookmarks menu.  
-					  You can select most actions quickly and easily by clicking on the "Chipmarks" menu.					  
-					  Quick-access toolbar buttons allow to you add pages to your chipmark collection and send pages to your buddies with a single click.
-				  </span>
+	Die Erweiterung fügt sich sofort in Firefox ein. Sie besitzt viel des typischen Verhaltens des üblichen Firefox Lesezeichen-Menüs. 
+	Sie können die meisten Aktionen schnell und leicht auswählen, in dem Sie auf das Chipmarks-Menü klicken. 
+	"Quick-Access" Buttons erlauben es, mit einem einzigen Klick Seiten zu Ihrer Chipmark-Sammlung hinzuzufügen und Seiten an Ihre Konkakte zu schicken.</span>
 			  </td>
 		  </tr>
 	  </table>
@@ -235,9 +230,9 @@
 			  <td>
 				  <img src="images/tour/ff_browse.png" align="left"/>
 				  <span class="content">
-					  Your chipmarks are displayed in the same style that Firefox shows your native bookmarks.  You browse them by navigating through
-					  cascading menus.  Additionally, you can enable the Chipmark Toolbar to get easy access to chipmarks you use frequently.  You
-					  get quick access to charts such as the Top 10, Recommended and Recently Added Chipmarks, as well as to randomly selected links.  
+				  Ihre Lesezeichen werden im gleichen Stil, wie im Firefox Browser angezeigt. Man kann wie gewohnt durch die hierarchische Struktur navigieren.
+				  Zusätzlich kann man eine Chipmark Toolbar aktivieren um auf häufig benutzte Favoriten noch einfacher aufzurufen.
+				  Außerdem gibt es einen Zugang zu den zusätzlichen Feature, wie die Top 10 Liste, die gerade hinzugefügte Chipmarks oder die zufälligen Chipmarks.
 				  </span>
 			  </td>
 		  </tr>
@@ -247,8 +242,8 @@
 			  <td>
 				  <img src="images/tour/ff_alreadychipmarked.png" align="right"/>
 				  <span class="content">
-					  We know it's next to impossible to remember every web page you've ever bookmarked, and Chipmark is ready to help.  When you visit a page
-					  that you've already chipmarked, an icon is displayed in the status bar of your browser indicating that you've added the page before.
+					  Es ist uns bekannt, dass es fast unmöglich ist, sich an alle Web-Seiten, die man gespeichert hat, zu erinnern - Chipmark ist bereit Ihnen zu helfen. 
+					  Wenn Sie eine Seite besuchen, die Sie bereits gechipmarked haben, wird ein Symbol in der Statusleiste Ihres Browsers angezeigt und zeigt an, dass Sie die Seite bereits früher hinzugefügt haben.
 				  </span>
 			  </td>
 		  </tr>
@@ -259,7 +254,7 @@
 			  <tr>
 				  <td valign="right">
 					  <span class="small_text">
-						  <a href="Main?target=tour_ie">continue </a>
+						  <a href="Main?target=tour_ie">weiter </a>
 					  </span>
 				  </td>
 				  <td align="center" valign="middle">

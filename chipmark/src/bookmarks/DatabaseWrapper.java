@@ -443,17 +443,14 @@ public class DatabaseWrapper {
 			userClause = " AND link.linkClientID = '" + clientID + "' ";
 
 		// limit query to 200 results
-		// String query2 = "SELECT link.linkID, link.linkName, link.linkURL, "
-		// +
-		// "link.linkDescription, link.linkClientID, linkPermission, linkLastMod,"
-		// +
-		// "linkFolderParentID, link.toolbarPosition, GROUP_CONCAT(labelName) AS labels FROM linktext "
-		// + "LEFT JOIN link USING(linkID) "
-		// + "LEFT JOIN label ON labelLinkID = link.linkID "
-		// +
-		// "WHERE MATCH (linktext.linkName,linktext.linkURL,linktext.linkDescription) "
-		// + "AGAINST ('" + searchTerm + "' IN BOOLEAN MODE)  "
-		// + userClause + "GROUP BY link.linkID LIMIT 200";
+//		String query2 = "SELECT link.linkID, link.linkName, link.linkURL, "
+//				+ "link.linkDescription, link.linkClientID, linkPermission, linkLastMod,"
+//				+ "linkFolderParentID, link.toolbarPosition, GROUP_CONCAT(labelName) AS labels FROM linktext "
+//				+ "LEFT JOIN link USING(linkID) "
+//				+ "LEFT JOIN label ON labelLinkID = link.linkID "
+//				+ "WHERE MATCH (linktext.linkName,linktext.linkURL,linktext.linkDescription) "
+//				+ "AGAINST ('" + searchTerm + "' IN BOOLEAN MODE)  "
+//				+ userClause + "GROUP BY link.linkID LIMIT 200";
 
 		String query = "SELECT COUNT(link.linkID) as \"SearchCount\", link.linkID, link.linkName, link.linkURL, "
 				+ "link.linkDescription, link.linkClientID, linkPermission, linkLastMod,"
@@ -1252,7 +1249,7 @@ public class DatabaseWrapper {
 					}
 				}
 			}
-			// When something need to be done
+			//When something need to be done
 			if (linkName != null || linkURL != null || linkPermission != null
 					|| linkDescription != null) {
 
@@ -1514,7 +1511,7 @@ public class DatabaseWrapper {
 			stmt1a.setInt(7, urlID);
 			stmt1a.setInt(8, 0);
 			stmt1a.setInt(9, toolbarPosition);
-			
+
 			// The statement to add the bookmark to the linktext table
 			stmt1b = conn1
 					.prepareStatement("INSERT INTO linktext(linkName,linkURL,linkDescription) VALUES(?,?,?)");
@@ -1522,10 +1519,10 @@ public class DatabaseWrapper {
 			stmt1b.setString(1, linkName);
 			stmt1b.setString(2, linkURL);
 			stmt1b.setString(3, linkDescription);
-
+			stmt1a.executeUpdate();
 			// Add the bookmark
 			try {
-				stmt1a.executeUpdate();
+
 				stmt1b.executeUpdate();
 			} catch (Exception ex) {
 				throw new NoSuchFieldException(
