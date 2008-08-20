@@ -1190,6 +1190,9 @@ public class DatabaseWrapper {
 		PreparedStatement stmt1d = null;
 		ResultSet rs2b = null;
 		PreparedStatement stmt2b = null;
+		
+		String OriginalLinkPermission = null;
+		
 		try {
 			// check for dups in the labels
 			if (labelNames != null) {
@@ -1206,7 +1209,7 @@ public class DatabaseWrapper {
 
 			conn1 = ConnectionPool.getConn();
 			stmt1 = conn1
-					.prepareStatement("SELECT linkID FROM link WHERE linkID = ? AND linkClientID = ?");
+					.prepareStatement("SELECT linkID, linkPermission FROM link WHERE linkID = ? AND linkClientID = ?");
 			stmt1.setInt(1, linkID);
 			stmt1.setInt(2, user.getClientID());
 			rs1 = stmt1.executeQuery();
@@ -1215,6 +1218,9 @@ public class DatabaseWrapper {
 				throw new IllegalAccessException(
 						"Attempting to edit a non-existent bookmark, or a bookmark not owned by this user");
 			}
+			else
+				OriginalLinkPermission = rs1.getString("linkPermission");
+				
 			if (stmt1 != null) {
 				stmt1.close();
 			}
@@ -1228,8 +1234,14 @@ public class DatabaseWrapper {
 					linkURL = linkURL.substring(0, 254);
 				}
 
+				if(OriginalLinkPermission.equals("public") && linkPermission.equals("private"))
+					this.updateTableURLEntry(linkURL, "delete");
+				
 				// Make sure the URL is in the table
-				if (linkPermission.equals("public")) {
+				if(linkPermission.equals("public")) {
+					
+					this.updateTableURLEntry(linkURL, "add");
+					/*
 					stmt2 = conn1
 							.prepareStatement("INSERT IGNORE INTO url (url) VALUES (?)");
 					stmt2.setString(1, linkURL);
@@ -1246,7 +1258,7 @@ public class DatabaseWrapper {
 					} else {
 						throw new SQLException(
 								"Unable to find appropriate URL for link.");
-					}
+					}*/
 				}
 			}
 			//When something need to be done

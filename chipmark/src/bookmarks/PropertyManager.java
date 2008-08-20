@@ -49,7 +49,7 @@ public class PropertyManager {
 
 	// Define private information used in the DatabaseWrapper Servlet
 	static public String database_domain = "localhost";
-	static public String database_name = "chipmark";
+	static public String database_name = "";
 	static public String database_user = "";
 	static public String database_password = "";
 	static public int database_max_chipmarks = 5000;
