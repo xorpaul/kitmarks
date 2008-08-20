@@ -38,7 +38,7 @@ public interface EventLogger {
 	 * @return
 	 * @throws IOException
 	 */
-    public int log(long timestamp, String servletName, int responseTime, int userID, String action,
-                    boolean exception, String ipAddress, String browserType) throws IOException;
+//    public int log(long timestamp, String servletName, int responseTime, int userID, String action,
+//                    boolean exception, String ipAddress, String browserType) throws IOException;
 
 }

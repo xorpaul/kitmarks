@@ -331,7 +331,6 @@ public class LoginServlet extends HttpServlet {
 				Utilities.styleXML(xml, "admin", userInfo);
 			}
 		} else {
-
 			resultMsg = FAIL_MESSAGE;
 			xml.constructWithResultMsg("", resultMsg);
 

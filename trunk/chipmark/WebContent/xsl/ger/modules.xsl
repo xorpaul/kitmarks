@@ -76,7 +76,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 										<img src="images/add_link_15.png"/>
 									</td>
 									<td>
-										<a class="login_module_actions" href="Manage">chipmarks</a>
+										<a class="login_module_actions" href="Manage">Chipmarks</a>
 									</td>
 								</tr>
 								<tr>
@@ -84,7 +84,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 										<img src="images/send_link_15.png"/>
 									</td>
 									<td>										
-										<a class="login_module_actions" href="BuddyList">buddies</a>
+										<a class="login_module_actions" href="BuddyList">Freunde</a>
 									</td>
 								</tr>
 								<tr>
@@ -92,7 +92,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 										<img src="images/spacer.gif" height="16" width="16"/>
 									</td>
 									<td>
-										<a class="login_module_actions" href="AccountPreferences">account</a>
+										<a class="login_module_actions" href="AccountPreferences">Account</a>
 									</td>
 								</tr>
 							</table>
@@ -103,7 +103,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 									<span class="small_text">
 										&#160;
 										<a id="buddy_alert_text" href="Main?target=userHome">
-											buddy alerts
+											Freund-Alarmierung
 										</a>
 										&#160;
 									</span>
@@ -113,7 +113,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 									<span class="small_text">
 										&#160;
 										<a id="invite_alert_text" href="Main?target=userHome">
-											invite alerts
+											Einladungsalarmierung
 										</a>
 										&#160;
 									</span>
@@ -123,7 +123,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 									<span class="small_text">
 										&#160;
 										<a id="inbox_alert_text" href="Main?target=userHome">
-											inbox alerts
+											Postfachalarmierung
 										</a>
 										&#160;
 									</span>
@@ -182,7 +182,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 					<img src="images/spacer.gif"/>
 				</td>
 				<td class="module_title_mid">
-					Populäre Chipmarks
+					Beliebte Chipmarks
 				</td>
 				<td class="module_title_right">
 					<img src="images/spacer.gif"/>
@@ -211,7 +211,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 								</td>
 								<td valign="middle">
 									<span class="small_text">
-										<a href="Top10Bookmarked">more...</a>
+										<a href="Top10Bookmarked">mehr...</a>
 									</span>
 								</td>
 							</tr>
@@ -281,7 +281,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 								</td>
 								<td valign="middle">
 									<span class="small_text">
-										<a href="#" onclick="getRandomChipmark('randomlink');">find another</a>
+										<a href="#" onclick="getRandomChipmark('randomlink');">mehr</a>
 									</span>
 								</td>
 							</tr>
@@ -348,7 +348,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 								</td>
 								<td valign="middle">
 									<span class="small_text">
-										<a href="MostRecentlyAdded">more...</a>
+										<a href="MostRecentlyAdded">mehr...</a>
 									</span>
 								</td>
 							</tr>

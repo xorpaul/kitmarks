@@ -114,21 +114,21 @@ public class LoggingFilter implements Filter{
 		if (servletPath.equals(LOGIN_SERVLET))
 			userId = smartRequest.getUserId();
 		
-		try {
-			eventId = this.logger.log(startTime, servletPath, (int)(endTime - startTime), userId, action, 
-					threwException, ipAddress, browserType);
-		}
-		catch (IOException e){
-			this.config.getServletContext().log("Warning: can't log event. " +
-					"Reason: " + e.getMessage());
-		}
-		
-		if (threwException){
-			this.config.getServletContext().log("Caught exception while in " + servletPath + 
-					". Username: " + 
-					username + ". Event ID: " + eventId, exception);
-			Utilities.wrapChipmarkException(exception);
-		}
+//		try {
+////			eventId = this.logger.log(startTime, servletPath, (int)(endTime - startTime), userId, action, 
+////					threwException, ipAddress, browserType);
+//		}
+//		catch (IOException e){
+//			this.config.getServletContext().log("Warning: can't log event. " +
+//					"Reason: " + e.getMessage());
+//		}
+//		
+//		if (threwException){
+//			this.config.getServletContext().log("Caught exception while in " + servletPath + 
+//					". Username: " + 
+//					username + ". Event ID: " + eventId, exception);
+//			Utilities.wrapChipmarkException(exception);
+//		}
 		
 	}
 
