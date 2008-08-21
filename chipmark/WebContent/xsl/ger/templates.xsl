@@ -473,7 +473,7 @@
 							<br />
 							<span class="subheader">Zuvor exportierte Bookmarks hochladen
 							</span>
-							<br />
+							<br /><br />
 							<a href="Export">
 								<img src="images/acorn16.png" border="0" />
 								Bookmarks exportieren
@@ -481,7 +481,7 @@
 							<br />
 							<span class="subheader">Sicherungsdatei der hochgeladenen
 								Chipmarks erstellen und herunterladen</span>
-							<br />
+							<br /><br />
 							<a href="AddLink">
 								<img src="images/acorn16.png" border="0" />
 								Ein Chipmark hinzufügen
@@ -489,7 +489,7 @@
 							<br />
 							<span class="subheader"> Einen neuen Bookmarks als Chipmark hinzufügen
 							</span>
-							<br />
+							<br /><br />
 							<a href="Manage">
 								<img src="images/acorn16.png" border="0" />
 								Eigene Chipmarks verwalten

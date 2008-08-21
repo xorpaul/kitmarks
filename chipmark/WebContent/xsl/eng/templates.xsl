@@ -402,22 +402,22 @@
 							</a>
 							<br />
 							<span class="subheader">import bookmarks from popular browsers
-								TEST ENGLISH</span>
-							<br />
+								</span>
+							<br /><br />
 							<a href="Export">
 								<img src="images/acorn16.png" border="0" />
 								export chipmarks
 							</a>
 							<br />
 							<span class="subheader">create a backup of your chipmarks</span>
-							<br />
+							<br /><br />
 							<a href="AddLink">
 								<img src="images/acorn16.png" border="0" />
 								add a chipmark
 							</a>
 							<br />
 							<span class="subheader"> add a new chipmark</span>
-							<br />
+							<br /><br />
 							<a href="Manage">
 								<img src="images/acorn16.png" border="0" />
 								manage your chipmarks
