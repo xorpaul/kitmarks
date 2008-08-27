@@ -487,7 +487,7 @@
 								Ein Chipmark hinzufügen
 							</a>
 							<br />
-							<span class="subheader"> Einen neuen Bookmarks als Chipmark hinzufügen
+							<span class="subheader"> Einen neuen Link als Chipmark hinzufügen
 							</span>
 							<br /><br />
 							<a href="Manage">
@@ -726,14 +726,14 @@
 			encourage people to modify chipmark's source code, found in the
 			download section. Modification and distribution of Chipmark must
 			adhere to the terms set forth in the GPLv2 license, available
-			<a href="/COPYING">here</a>
+			<a href="COPYING">here</a>
 			.
 		</p>
 		<p class="sub_header">Questions</p>
 		<p class="sub_content">
 			At times, it can be diffcult to find the answer to your question in
 			the license. Feel free to visit our
-			<a href="/Main?target=developers">developers</a>
+			<a href="Main?target=developers">developers</a>
 			section for more general help or questions about our API.
 		</p>
 	</xsl:template>
@@ -1258,7 +1258,7 @@
 		<p class="sub_header">having a problem?</p>
 		<p class="sub_content">
 			Please read the
-			<a href="/Main?target=faqs">FAQ</a>
+			<a href="Main?target=faqs">FAQ</a>
 			section. In the FAQ we address the common problems and frustrations
 			users expierence.
 		</p>
@@ -1287,7 +1287,7 @@
 		<p class="sub_header">curious about a feature?</p>
 		<p class="sub_content">
 			Please read the
-			<a href="/Main?target=features">features</a>
+			<a href="Main?target=features">features</a>
 			section. In the features section we list all the abilties of
 			Chipmark's three interfaces. So, if you want to do something not
 			listed, we have not yet added that feature.
@@ -1297,7 +1297,7 @@
 			Please visit the
 			<a href="http://www.chipmark.com:8082/forum">forum</a>
 			or the
-			<a href="/Main?target=contact">contact</a>
+			<a href="Main?target=contact">contact</a>
 			section. In the the contact section we list four ways of
 			communicating with the Chipmark team.
 		</p>
