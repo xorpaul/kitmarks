@@ -80,7 +80,7 @@
 		<script src="js/newsLetter.js" language="javascript" type="text/javascript"> ;
 		</script>
 		<xsl:if
-			test="xml/Target='manage' or xml/Target='pluginManage' or xml/Target='facebookManage'">
+			test="xml/Target='manage' or xml/Target='pluginManage' or xml/Target='facebookManage' or xml/Target='viewlinks'">
 			<script src="js/treeNode.js" language="javascript" type="text/javascript">;
 			</script>
 			<script src="js/panelNode.js" language="javascript" type="text/javascript">;

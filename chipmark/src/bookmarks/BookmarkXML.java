@@ -346,22 +346,19 @@ public class BookmarkXML {
 	 * @param bookmark
 	 */
 	public void constructRandom(String userName, LinkNameUrlObject random) {
-		if (!userName.equals("SessionDummy")
-				&& !userName.equals("SessionDummyChanged")) {
-			Element root = xmlDoc.addElement(XML);
-			root.addElement("LoggedInAs").addText(userName);
-			root.addElement("Result").addText("SUCCESS");
-			Element bookmarkList = root.addElement("BookmarkList");
-			Element bookmark = bookmarkList.addElement("Bookmark");
-			bookmark.addElement("Title").addText(random.getLinkName());
-			bookmark.addElement("URL").addText(random.getLinkURL());
-			bookmark.addElement("EncodedLink").addText(
-					Utilities.encodeURIComponent(random.getLinkURL()));
-			bookmark.addElement("EncodedName").addText(
-					Utilities.encodeURIComponent(random.getLinkName()));
-			if (!userName.equals("")) {
-				bookmark.addElement("LoggedIn");
-			}
+		Element root = xmlDoc.addElement(XML);
+		root.addElement("LoggedInAs").addText(userName);
+		root.addElement("Result").addText("SUCCESS");
+		Element bookmarkList = root.addElement("BookmarkList");
+		Element bookmark = bookmarkList.addElement("Bookmark");
+		bookmark.addElement("Title").addText(random.getLinkName());
+		bookmark.addElement("URL").addText(random.getLinkURL());
+		bookmark.addElement("EncodedLink").addText(
+				Utilities.encodeURIComponent(random.getLinkURL()));
+		bookmark.addElement("EncodedName").addText(
+				Utilities.encodeURIComponent(random.getLinkName()));
+		if (!userName.equals("")) {
+			bookmark.addElement("LoggedIn");
 		}
 	}
 
@@ -391,36 +388,33 @@ public class BookmarkXML {
 	 */
 	public void constructMostRecentlyAdded(String userName,
 			ArrayList<LinkNameUrlObject> bookmarks) {
-		if (!userName.equals("SessionDummy")
-				&& !userName.equals("SessionDummyChanged")) {
-			Element root = xmlDoc.addElement(XML);
+		Element root = xmlDoc.addElement(XML);
 
-			root.addElement("LoggedInAs").addText(userName);
+		root.addElement("LoggedInAs").addText(userName);
 
-			Element bookmarkList = root.addElement("BookmarkList");
+		Element bookmarkList = root.addElement("BookmarkList");
 
-			for (int i = 0; i < bookmarks.size(); i++) {
-				LinkNameUrlObject temp = bookmarks.get(i);
+		for (int i = 0; i < bookmarks.size(); i++) {
+			LinkNameUrlObject temp = bookmarks.get(i);
 
-				Element bookmark = bookmarkList.addElement("Bookmark");
+			Element bookmark = bookmarkList.addElement("Bookmark");
 
-				if (!userName.equals("")) {
-					bookmark.addElement("LoggedIn");
-				}
-
-				bookmark.addElement("Title").addText(temp.getLinkName());
-
-				bookmark.addElement("URL").addText(temp.getLinkURL());
-
-				bookmark.addElement("Date").addText(temp.getLinkDate());
-
-				bookmark.addElement("EncodedLink").addText(
-						Utilities.encodeURIComponent(temp.getLinkURL()));
-
-				bookmark.addElement("EncodedName").addText(
-						Utilities.encodeURIComponent(temp.getLinkName()));
-
+			if (!userName.equals("")) {
+				bookmark.addElement("LoggedIn");
 			}
+
+			bookmark.addElement("Title").addText(temp.getLinkName());
+
+			bookmark.addElement("URL").addText(temp.getLinkURL());
+
+			bookmark.addElement("Date").addText(temp.getLinkDate());
+
+			bookmark.addElement("EncodedLink").addText(
+					Utilities.encodeURIComponent(temp.getLinkURL()));
+
+			bookmark.addElement("EncodedName").addText(
+					Utilities.encodeURIComponent(temp.getLinkName()));
+
 		}
 	}
 
@@ -694,7 +688,7 @@ public class BookmarkXML {
 	 * @param userName
 	 * @param labels
 	 */
-	@SuppressWarnings("unused")
+	// @SuppressWarnings("unused")
 	public void constructViewLinks(ArrayList<Bookmark> matches,
 			String userName, ArrayList<String> labels) {
 		if (!userName.equals("SessionDummy")
@@ -828,55 +822,47 @@ public class BookmarkXML {
 	@SuppressWarnings("unused")
 	public void constructTop10Bookmarked(String userName, int numberOfUsers,
 			ArrayList<TopBookmarkInfo> matches) {
-		if (!userName.equals("SessionDummy")
-				&& !userName.equals("SessionDummyChanged")) {
-			Element root = xmlDoc.addElement(XML);
+		Element root = xmlDoc.addElement(XML);
 
-			if (numberOfUsers == 0) {
-				numberOfUsers = 1;
+		if (numberOfUsers == 0) {
+			numberOfUsers = 1;
+		}
+
+		int length = String.valueOf(numberOfUsers).length();
+
+		Element loggedInAs = root.addElement("LoggedInAs").addText(userName);
+
+		Element bookmarkList = root.addElement("BookmarkList");
+
+		for (Iterator<TopBookmarkInfo> it = matches.iterator(); it.hasNext();) {
+			TopBookmarkInfo x = it.next();
+
+			Element bookmark = bookmarkList.addElement("Bookmark");
+
+			if (!userName.equals("")) {
+				bookmark.addElement("LoggedIn");
 			}
 
-			int length = String.valueOf(numberOfUsers).length();
+			Element url = bookmark.addElement("Link").addText(x.getLinkURL());
 
-			Element loggedInAs = root.addElement("LoggedInAs")
-					.addText(userName);
+			Element encodedUrl = bookmark.addElement("EncodedLink").addText(
+					Utilities.encodeURIComponent(x.getLinkURL()));
 
-			Element bookmarkList = root.addElement("BookmarkList");
+			Element hitcount = bookmark.addElement("HitCount").addText(
+					String.valueOf(x.getRepetitions()));
 
-			for (Iterator<TopBookmarkInfo> it = matches.iterator(); it
-					.hasNext();) {
-				TopBookmarkInfo x = it.next();
+			Element hitcountsort = bookmark.addElement("HitCountToSortBy")
+					.addText(paddedValueOf(x.getRepetitions(), length, '0'));
 
-				Element bookmark = bookmarkList.addElement("Bookmark");
+			Element rank = bookmark.addElement("Rank").addText(
+					String.valueOf(x.getRank()));
 
-				if (!userName.equals("")) {
-					bookmark.addElement("LoggedIn");
-				}
+			Element numberOfUsers_e = bookmark.addElement("NumberOfUsers")
+					.addText(String.valueOf(numberOfUsers));
 
-				Element url = bookmark.addElement("Link").addText(
-						x.getLinkURL());
+			Element percentage = bookmark.addElement("Percentage").addText(
+					String.valueOf((x.getRepetitions() * 100) / numberOfUsers));
 
-				Element encodedUrl = bookmark.addElement("EncodedLink")
-						.addText(Utilities.encodeURIComponent(x.getLinkURL()));
-
-				Element hitcount = bookmark.addElement("HitCount").addText(
-						String.valueOf(x.getRepetitions()));
-
-				Element hitcountsort = bookmark
-						.addElement("HitCountToSortBy")
-						.addText(paddedValueOf(x.getRepetitions(), length, '0'));
-
-				Element rank = bookmark.addElement("Rank").addText(
-						String.valueOf(x.getRank()));
-
-				Element numberOfUsers_e = bookmark.addElement("NumberOfUsers")
-						.addText(String.valueOf(numberOfUsers));
-
-				Element percentage = bookmark.addElement("Percentage").addText(
-						String.valueOf((x.getRepetitions() * 100)
-								/ numberOfUsers));
-
-			}
 		}
 	}
 
