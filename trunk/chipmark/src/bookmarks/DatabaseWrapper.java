@@ -443,14 +443,17 @@ public class DatabaseWrapper {
 			userClause = " AND link.linkClientID = '" + clientID + "' ";
 
 		// limit query to 200 results
-//		String query2 = "SELECT link.linkID, link.linkName, link.linkURL, "
-//				+ "link.linkDescription, link.linkClientID, linkPermission, linkLastMod,"
-//				+ "linkFolderParentID, link.toolbarPosition, GROUP_CONCAT(labelName) AS labels FROM linktext "
-//				+ "LEFT JOIN link USING(linkID) "
-//				+ "LEFT JOIN label ON labelLinkID = link.linkID "
-//				+ "WHERE MATCH (linktext.linkName,linktext.linkURL,linktext.linkDescription) "
-//				+ "AGAINST ('" + searchTerm + "' IN BOOLEAN MODE)  "
-//				+ userClause + "GROUP BY link.linkID LIMIT 200";
+		// String query2 = "SELECT link.linkID, link.linkName, link.linkURL, "
+		// +
+		// "link.linkDescription, link.linkClientID, linkPermission, linkLastMod,"
+		// +
+		// "linkFolderParentID, link.toolbarPosition, GROUP_CONCAT(labelName) AS labels FROM linktext "
+		// + "LEFT JOIN link USING(linkID) "
+		// + "LEFT JOIN label ON labelLinkID = link.linkID "
+		// +
+		// "WHERE MATCH (linktext.linkName,linktext.linkURL,linktext.linkDescription) "
+		// + "AGAINST ('" + searchTerm + "' IN BOOLEAN MODE)  "
+		// + userClause + "GROUP BY link.linkID LIMIT 200";
 
 		String query = "SELECT COUNT(link.linkID) as \"SearchCount\", link.linkID, link.linkName, link.linkURL, "
 				+ "link.linkDescription, link.linkClientID, linkPermission, linkLastMod,"
@@ -1190,9 +1193,9 @@ public class DatabaseWrapper {
 		PreparedStatement stmt1d = null;
 		ResultSet rs2b = null;
 		PreparedStatement stmt2b = null;
-		
+
 		String OriginalLinkPermission = null;
-		
+
 		try {
 			// check for dups in the labels
 			if (labelNames != null) {
@@ -1217,10 +1220,9 @@ public class DatabaseWrapper {
 			if (!rs1.first()) {
 				throw new IllegalAccessException(
 						"Attempting to edit a non-existent bookmark, or a bookmark not owned by this user");
-			}
-			else
+			} else
 				OriginalLinkPermission = rs1.getString("linkPermission");
-				
+
 			if (stmt1 != null) {
 				stmt1.close();
 			}
@@ -1234,34 +1236,17 @@ public class DatabaseWrapper {
 					linkURL = linkURL.substring(0, 254);
 				}
 
-				if(OriginalLinkPermission.equals("public") && linkPermission.equals("private"))
+				// Update the URL table
+
+				if (OriginalLinkPermission.equals("public")
+						&& linkPermission.equals("private"))
 					this.updateTableURLEntry(linkURL, "delete");
-				
-				// Make sure the URL is in the table
-				if(linkPermission.equals("public")) {
-					
+
+				if (OriginalLinkPermission.equals("private")
+						&& linkPermission.equals("public"))
 					this.updateTableURLEntry(linkURL, "add");
-					/*
-					stmt2 = conn1
-							.prepareStatement("INSERT IGNORE INTO url (url) VALUES (?)");
-					stmt2.setString(1, linkURL);
-					stmt2.executeUpdate();
-
-					stmt1a = conn1
-							.prepareStatement("SELECT * FROM url WHERE url = ?");
-					stmt1a.setString(1, linkURL);
-
-					rs1a = stmt1a.executeQuery();
-
-					if (rs1a.first()) {
-						urlID = rs1a.getInt("urlID");
-					} else {
-						throw new SQLException(
-								"Unable to find appropriate URL for link.");
-					}*/
-				}
 			}
-			//When something need to be done
+			// When something need to be done
 			if (linkName != null || linkURL != null || linkPermission != null
 					|| linkDescription != null) {
 
@@ -1468,6 +1453,8 @@ public class DatabaseWrapper {
 		PreparedStatement stmt1d = null;
 		PreparedStatement stmt1c = null;
 		PreparedStatement stmt2b = null;
+		PreparedStatement stmt2c = null;
+		ResultSet rs1c = null;
 
 		try {
 			// Check to see if the user can actually add a chipmark.
@@ -1485,7 +1472,9 @@ public class DatabaseWrapper {
 			}
 
 			int urlID = 0;
-
+			int clientID = user.getClientID();
+			
+			
 			conn1 = ConnectionPool.getConn();
 			conn2 = ConnectionPool.getConn();
 
@@ -1495,11 +1484,19 @@ public class DatabaseWrapper {
 				linkURL = linkURL.substring(0, 254);
 			}
 
-			if (linkPermission.equals("public")) {
+			//Check if the user already saved this URL
+			stmt2c = conn1
+			.prepareStatement("SELECT linkID FROM link WHERE linkClientID = ? AND linkURL = ?");
+			stmt2c.setInt(1, clientID);
+			stmt2c.setString(2, linkURL);
+			
+			rs1c = stmt2c.executeQuery();
+			
+			if (linkPermission.equals("public") && !rs1c.first()) {
 				updateTableURLEntry(linkURL, "add");
 
 				stmt1 = conn1
-						.prepareStatement("SELECT * FROM url WHERE url = ?");
+						.prepareStatement("SELECT urlID FROM url WHERE url = ?");
 				stmt1.setString(1, linkURL);
 				rs1 = stmt1.executeQuery();
 				if (rs1.first()) {
@@ -1509,7 +1506,7 @@ public class DatabaseWrapper {
 				}
 			}
 
-			int clientID = user.getClientID();
+			
 
 			// The statement to add the bookmark to the link table
 			stmt1a = conn1
