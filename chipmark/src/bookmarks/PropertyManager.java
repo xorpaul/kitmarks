@@ -29,21 +29,21 @@ package bookmarks;
 
 public class PropertyManager {
 	// Define instance specific information
-	static public String CATALINA_BASE = "C:\\\\Program Files\\\\Apache Software Foundation\\\\Tomcat 6.0\\\\webapps\\\\";
+	static public String CATALINA_BASE =  "/srv/apache-tomcat-6.0.18/";
 	/**
 	 * CATALINA_BASE = unter Linux: "/srv/devtomcat/"; unter Windows:
 	 * "C:\\\\Program Files\\\\Apache Software Foundation\\\\Tomcat 6.0\\\\webapps\\\\"
 	 * ; ; debug in eclipse: "/home/paul/workspace/cm4-linux/";
 	 */
 
-	public static final String XSLPATHGER = "chipmark\\\\xsl\\ger\\\\";
+	public static final String XSLPATHGER =  "webapps/chipmark/xsl/ger/"; 
 
-	public static final String XSLPATHENG = "chipmark\\\\xsl\\eng\\\\";
+	public static final String XSLPATHENG =  "webapps/chipmark/xsl/eng/"; 
 	/**
 	 * Diese Variablen geben den Pfad zu den xsl Dateien an. Der erste Ordner
 	 * ist der Applikationsname im Tomcat hier chipmark
 	 * 
-	 * Bsp. unter Linux: "webapps/ROOT/xsl/eng/"; für debug in eclipse:
+	 * Bsp. unter Linux: "webapps/chipmark/xsl/eng/"; für debug in eclipse:
 	 * "WebContent/xsl/ger/"; Bsp. unter Windows: "chipmark\\\\xsl\\eng\\\\";
 	 */
 
