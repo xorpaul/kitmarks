@@ -8,5 +8,5 @@
 </head>
 
 <META HTTP-EQUIV="Refresh"
-	CONTENT="0; URL=https://pps:8443/chipmark/Main">
+	CONTENT="0; URL=https://pps.getmyip.com:8443/chipmark/Main">
 </html>
