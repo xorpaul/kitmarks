@@ -314,6 +314,7 @@ public class LoginServlet extends HttpServlet {
 			boolean loggedIn) {
 
 		String resultMsg = null;
+		String msg = null;
 
 		if (loggedIn && userInfo != null && userInfo.getClientID() != 0) {
 
@@ -331,13 +332,21 @@ public class LoginServlet extends HttpServlet {
 				Utilities.styleXML(xml, "admin", userInfo);
 			}
 		} else {
-			resultMsg = FAIL_MESSAGE;
+
+			if (userInfo == null) {
+				userInfo = new ClientEntry(0, "SessionDummy",
+						"dummy@session.de", "xxx", true, "ger");
+			}
+			
+			if (userInfo.getPreferredLang().equals("eng"))
+				msg = FAIL_MESSAGE;
+			else
+				msg = "Der Benutzername oder das Passwort sind inkorrekt";
+
+			resultMsg = msg;
 			xml.constructWithResultMsg("", resultMsg);
 
-			ClientEntry userJoined = new ClientEntry(0, "SessionDummy",
-					"dummy@session.de", "xxx", true, "ger");
-
-			Utilities.styleXML(xml, "error", userJoined);
+			Utilities.styleXML(xml, "error", userInfo);
 
 		}
 

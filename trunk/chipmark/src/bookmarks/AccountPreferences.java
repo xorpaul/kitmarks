@@ -123,6 +123,7 @@ public class AccountPreferences extends HttpServlet {
 					.getParameter("oldPassword"));
 
 			String encryptedOldPassword = "";
+			String msg = null;
 			try {
 				encryptedOldPassword = Utilities.encrypt(oldPassword);
 			} catch (Exception ex) {
@@ -133,9 +134,9 @@ public class AccountPreferences extends HttpServlet {
 
 			if ((submitBtn != null) || externalAgent) {
 				updateCode updatePassword = checkUpdatePasswordFields(
-						newPassword, newPassword2, resultMsgs);
+						newPassword, newPassword2, resultMsgs, user);
 				updateCode updateEmail = checkEmailField(newClientMail,
-						resultMsgs);
+						resultMsgs, user);
 				boolean validPassword = encryptedOldPassword.equals(user
 						.getClientPass());
 
@@ -167,10 +168,13 @@ public class AccountPreferences extends HttpServlet {
 					}
 
 				} else {
-					resultMsgs
-							.add(new ResultMessage(
-									"current password incorrect - your preferences cannot be updated unless you provide your correct current password",
-									"error"));
+
+					if (user.getPreferredLang().equals("eng"))
+						msg = "current password incorrect - your preferences cannot be updated unless you provide your correct current password";
+					else
+						msg = "Aktuelles Passwort inkorrekt - Ihre Einstellungen können nur mit dem richtigen akutellen Passwort verändert werden";
+
+					resultMsgs.add(new ResultMessage(msg, "error"));
 				}
 			}
 
@@ -264,19 +268,29 @@ public class AccountPreferences extends HttpServlet {
 			String newClientMail, ArrayList<ResultMessage> resultMsgs)
 			throws ServletException {
 		try {
+
+			String msg = null;
+
 			if (db.setClientMailByClientName(newClientMail, user
 					.getClientName())) {
-				resultMsgs
-						.add(new ResultMessage(
-								"Your email address was successfully updated",
-								"status"));
+
+				if (user.getPreferredLang().equals("eng"))
+					msg = "Your email address was successfully updated.";
+				else
+					msg = "Ihre EMailadresse wurde erfolgreich geändert.";
+
+				resultMsgs.add(new ResultMessage(msg, "status"));
 				user.setClientMail(newClientMail);
 
 				return true;
 			} else {
-				resultMsgs.add(new ResultMessage(
-						"There was an error updating your email address.",
-						"error"));
+
+				if (user.getPreferredLang().equals("eng"))
+					msg = "There was an error updating your email address.";
+				else
+					msg = "Beim Ändern ihrer EMailadresse ist ein Fehler aufgetreten.";
+
+				resultMsgs.add(new ResultMessage(msg, "error"));
 				return false;
 			}
 		} catch (Exception e) {
@@ -305,28 +319,39 @@ public class AccountPreferences extends HttpServlet {
 			String newPassword, String newPassword2, String oldPassword,
 			ArrayList<ResultMessage> resultMsgs) throws ServletException {
 
+		String msg = null;
+
 		try {
 			if (newPassword.compareTo(oldPassword) == 0) {
-				resultMsgs.add(new ResultMessage(
-						"Your password remains unchanged.", "status"));
+
+				if (user.getPreferredLang().equals("eng"))
+					msg = "Your password remains unchanged.";
+				else
+					msg = "Ihr Passwort bleibt unverändert.";
+				resultMsgs.add(new ResultMessage(msg, "status"));
 				return false;
 			} else if (newPassword.compareTo(oldPassword) != 0
 					&& newPassword2.compareTo(newPassword) == 0) {
 				if (db.setClientPassByClientName(newPassword, user
 						.getClientName())) {
-					resultMsgs
-							.add(new ResultMessage(
-									"Your password was successfully updated",
-									"status"));
+					if (user.getPreferredLang().equals("eng"))
+						msg = "Your password was successfully updated";
+					else
+						msg = "Ihr Passwort wurde erfolgreich geändert.";
+
+					resultMsgs.add(new ResultMessage(msg, "status"));
 					String newEncryptedPassword = Utilities
 							.encrypt(newPassword);
 					user.setClientPass(newEncryptedPassword);
 
 					return true;
 				} else {
-					resultMsgs.add(new ResultMessage(
-							"There was an error updating your password.",
-							"error"));
+					if (user.getPreferredLang().equals("eng"))
+						msg = "There was an error updating your password.";
+					else
+						msg = "Es ist ein Fehler beim Verändern des Passwortes aufgetretten.";
+
+					resultMsgs.add(new ResultMessage(msg, "error"));
 					return false;
 				}
 			}
@@ -344,15 +369,23 @@ public class AccountPreferences extends HttpServlet {
 	 * @return
 	 */
 	private updateCode checkEmailField(String newClientMail,
-			ArrayList<ResultMessage> resultMsgs) {
+			ArrayList<ResultMessage> resultMsgs, ClientEntry user) {
 		newClientMail = newClientMail.trim();
+
+		String msg = null;
+
+		if (user.getPreferredLang().equals("eng"))
+			msg = INVALID_EMAIL;
+		else
+			msg = "Bitte eine gültige EMailadresse eingeben.";
 
 		if (newClientMail != "") {
 			if (newClientMail.indexOf("@") == -1) {
-				resultMsgs.add(new ResultMessage(INVALID_EMAIL, "error"));
+
+				resultMsgs.add(new ResultMessage(msg, "error"));
 				return updateCode.ERROR;
 			} else if (newClientMail.trim().length() < 6) {
-				resultMsgs.add(new ResultMessage(INVALID_EMAIL, "error"));
+				resultMsgs.add(new ResultMessage(msg, "error"));
 				return updateCode.ERROR;
 			} else {
 				String email = newClientMail.trim();
@@ -362,18 +395,16 @@ public class AccountPreferences extends HttpServlet {
 				// email@email@email or
 				// @@@@@@
 				if (clientEmail.length != 2) {
-					resultMsgs.add(new ResultMessage(INVALID_EMAIL, "error"));
+					resultMsgs.add(new ResultMessage(msg, "error"));
 					return updateCode.ERROR;
 				} else {
 					if (clientEmail[0].equals("") || clientEmail[1].equals("")) {
-						resultMsgs
-								.add(new ResultMessage(INVALID_EMAIL, "error"));
+						resultMsgs.add(new ResultMessage(msg, "error"));
 						return updateCode.ERROR;
 					} else {
 						char last = email.charAt(email.length() - 1);
 						if (last == '@') {
-							resultMsgs.add(new ResultMessage(INVALID_EMAIL,
-									"error"));
+							resultMsgs.add(new ResultMessage(msg, "error"));
 							return updateCode.ERROR;
 						}
 					}
@@ -394,34 +425,57 @@ public class AccountPreferences extends HttpServlet {
 	 * @return
 	 */
 	private updateCode checkUpdatePasswordFields(String newPassword,
-			String newPassword2, ArrayList<ResultMessage> resultMsgs) {
+			String newPassword2, ArrayList<ResultMessage> resultMsgs,
+			ClientEntry user) {
 		// don't check if both fields are empty
 		if (newPassword.equals("") && newPassword2.equals("")) {
 			return updateCode.NO_UPDATE;
 		}
+
+		String msg = null;
+
 		try {
 			PASSWORD_CONSTRAINT.validate(newPassword);
 		} catch (ConstraintException ex) {
 			switch (ex.getType()) {
 			case ConstraintException.ILLEGAL_CHARACTER:
-				resultMsgs
-						.add(new ResultMessage(
-								"There are illegal characters in the new password field.",
-								"error"));
+
+				if (user.getPreferredLang().equals("eng"))
+					msg = "There are illegal characters in the new password field.";
+				else
+					msg = "Das neue Passwort enthält nicht erlaubte Zeichen.";
+
+				resultMsgs.add(new ResultMessage(msg, "error"));
 				return updateCode.ERROR;
 			case ConstraintException.VALUE_ABOVE_MAXIMUM:
-				resultMsgs.add(new ResultMessage(
-						"A new password must be between "
-								+ PASSWORD_CONSTRAINT.getMinLength() + " and "
-								+ PASSWORD_CONSTRAINT.getMaxLength()
-								+ " characters in length.", "error"));
+
+				if (user.getPreferredLang().equals("eng"))
+					msg = "A new password must be between "
+							+ PASSWORD_CONSTRAINT.getMinLength() + " and "
+							+ PASSWORD_CONSTRAINT.getMaxLength()
+							+ " characters in length.";
+				else
+					msg = "Ein neues Passwort muss zwischen "
+							+ PASSWORD_CONSTRAINT.getMinLength() + " und "
+							+ PASSWORD_CONSTRAINT.getMaxLength()
+							+ " Zeichen lang sein.";
+
+				resultMsgs.add(new ResultMessage(msg, "error"));
 				return updateCode.ERROR;
 			case ConstraintException.VALUE_BELOW_MINIMUM:
-				resultMsgs.add(new ResultMessage(
-						"A new password must be between "
-								+ PASSWORD_CONSTRAINT.getMinLength() + " and "
-								+ PASSWORD_CONSTRAINT.getMaxLength()
-								+ " characters in length.", "error"));
+
+				if (user.getPreferredLang().equals("eng"))
+					msg = "A new password must be between "
+							+ PASSWORD_CONSTRAINT.getMinLength() + " and "
+							+ PASSWORD_CONSTRAINT.getMaxLength()
+							+ " characters in length.";
+				else
+					msg = "Ein neues Passwort muss zwischen "
+							+ PASSWORD_CONSTRAINT.getMinLength() + " und "
+							+ PASSWORD_CONSTRAINT.getMaxLength()
+							+ " Zeichen lang sein.";
+
+				resultMsgs.add(new ResultMessage(msg, "error"));
 				return updateCode.ERROR;
 			default:
 				resultMsgs.add(new ResultMessage(
@@ -431,8 +485,13 @@ public class AccountPreferences extends HttpServlet {
 		}
 
 		if (newPassword.equals(newPassword2) == false) {
-			resultMsgs.add(new ResultMessage("Your new passwords do no agree.",
-					"error"));
+
+			if (user.getPreferredLang().equals("eng"))
+				msg = "Your new passwords do no agree.";
+			else
+				msg = "Beide neue Passwörter müssen übereinstimmen.";
+
+			resultMsgs.add(new ResultMessage(msg, "error"));
 			return updateCode.ERROR;
 		}
 

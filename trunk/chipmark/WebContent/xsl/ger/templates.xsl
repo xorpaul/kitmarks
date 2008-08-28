@@ -383,7 +383,7 @@
 	<!--
 		=====================================================================
 	-->
-	
+
 	<!--
 		ADMIN
 	-->
@@ -446,8 +446,8 @@
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
-	
-	
+
+
 	<!--
 		BODY_USER_HOME
 	-->
@@ -473,7 +473,8 @@
 							<br />
 							<span class="subheader">Zuvor exportierte Bookmarks hochladen
 							</span>
-							<br /><br />
+							<br />
+							<br />
 							<a href="Export">
 								<img src="images/acorn16.png" border="0" />
 								Bookmarks exportieren
@@ -481,7 +482,8 @@
 							<br />
 							<span class="subheader">Sicherungsdatei der hochgeladenen
 								Chipmarks erstellen und herunterladen</span>
-							<br /><br />
+							<br />
+							<br />
 							<a href="AddLink">
 								<img src="images/acorn16.png" border="0" />
 								Ein Chipmark hinzufügen
@@ -489,7 +491,8 @@
 							<br />
 							<span class="subheader"> Einen neuen Link als Chipmark hinzufügen
 							</span>
-							<br /><br />
+							<br />
+							<br />
 							<a href="Manage">
 								<img src="images/acorn16.png" border="0" />
 								Eigene Chipmarks verwalten
@@ -518,12 +521,26 @@
 		<!--
 			<div id="content_filter" style="width:100%;"> <script
 			language="JavaScript"> showFilter('content_filter');</script> </div>
-			<br /> <br /> <xsl:for-each select="xml/Result/Message"> <xsl:if
-			test="Value!='SUCCESS'"> <xsl:if test="Type='error'"> <p> <font
-			color="red"> <xsl:value-of select="Value" /> </font> </p> </xsl:if>
-			<xsl:if test="Type!='error'"> <p> <font color="green"> <xsl:value-of
-			select="Value" /> </font> </p> </xsl:if> </xsl:if> </xsl:for-each>
 		-->
+		<xsl:for-each select="xml/Result/Message">
+			<xsl:if test="Value!='SUCCESS'">
+				<xsl:if test="Type='error'">
+					<p>
+						<font color="red">
+							<xsl:value-of select="Value" />
+						</font>
+					</p>
+				</xsl:if>
+				<xsl:if test="Type!='error'">
+					<p>
+						<font color="green">
+							<xsl:value-of select="Value" />
+						</font>
+					</p>
+				</xsl:if>
+			</xsl:if>
+		</xsl:for-each>
+
 		<div id="preferred_lang" style="width:100%;">
 			<script language="JavaScript"> showPrefLang('preferred_lang');</script>
 		</div>
@@ -2030,7 +2047,7 @@
 	<!-- BODY_ERROR                                                            -->
 	<!-- ===================================================================== -->
 	<xsl:template name="BODY_ERROR">
-		<p class="title">error</p>
+		<p class="title">Fehler</p>
 		<xsl:choose>
 			<xsl:when test="xml/Result!='SUCCESS'">
 				<font color="red">
@@ -2044,8 +2061,7 @@
 			</xsl:otherwise>
 		</xsl:choose>
 		<br/><br/>
-		If you feel you are seeing this message when you shouldn't be, please submit a
-		bug report to us <a href="/Main?target=contact">here</a>.
+		Wenn Sie vermuten, dass die Fehlermeldung nicht sein sollte, bitte melden Sie diesen Fehler <a href="Main?target=contact">hier</a>.
 	</xsl:template>
 
 	<!-- ===================================================================== -->

@@ -982,7 +982,7 @@ public class DatabaseWrapper {
 			stmt1.executeUpdate();
 
 			stmt1 = conn1
-					.prepareStatement("DELETE FROM label WHERE linkID = ?");
+					.prepareStatement("DELETE FROM label WHERE labelLinkID = ?");
 			stmt1.setInt(1, linkID);
 
 			stmt1.executeUpdate();
@@ -1056,7 +1056,7 @@ public class DatabaseWrapper {
 					stmt.setString(2, linkURL);
 				} else {
 					stmt = conn
-							.prepareStatement("INSERT IGNORE INTO url (urlCount, url) VALUES (?,?)");
+							.prepareStatement("INSERT INTO url (urlCount, url) VALUES (?,?)");
 
 					stmt.setInt(1, (urlCount));
 					stmt.setString(2, linkURL);
@@ -1117,7 +1117,7 @@ public class DatabaseWrapper {
 				r = stmntQuery.executeQuery();
 				if (r.first()) {
 					ArrayList<Integer> allClientLinkIDs = new ArrayList<Integer>();
-
+					allClientLinkIDs.add(r.getInt("linkID"));
 					while (r.next()) {
 						allClientLinkIDs.add(r.getInt("linkID"));
 					}
