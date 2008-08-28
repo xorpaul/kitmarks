@@ -402,22 +402,25 @@
 							</a>
 							<br />
 							<span class="subheader">import bookmarks from popular browsers
-								</span>
-							<br /><br />
+							</span>
+							<br />
+							<br />
 							<a href="Export">
 								<img src="images/acorn16.png" border="0" />
 								export chipmarks
 							</a>
 							<br />
 							<span class="subheader">create a backup of your chipmarks</span>
-							<br /><br />
+							<br />
+							<br />
 							<a href="AddLink">
 								<img src="images/acorn16.png" border="0" />
 								add a chipmark
 							</a>
 							<br />
 							<span class="subheader"> add a new chipmark</span>
-							<br /><br />
+							<br />
+							<br />
 							<a href="Manage">
 								<img src="images/acorn16.png" border="0" />
 								manage your chipmarks
@@ -445,12 +448,26 @@
 		<!--
 			<div id="content_filter" style="width:100%;"> <script
 			language="JavaScript"> showFilter('content_filter');</script> </div>
-			<br /> <br /> <xsl:for-each select="xml/Result/Message"> <xsl:if
-			test="Value!='SUCCESS'"> <xsl:if test="Type='error'"> <p> <font
-			color="red"> <xsl:value-of select="Value" /> </font> </p> </xsl:if>
-			<xsl:if test="Type!='error'"> <p> <font color="green"> <xsl:value-of
-			select="Value" /> </font> </p> </xsl:if> </xsl:if> </xsl:for-each>
 		-->
+		<xsl:for-each select="xml/Result/Message">
+			<xsl:if test="Value!='SUCCESS'">
+				<xsl:if test="Type='error'">
+					<p>
+						<font color="red">
+							<xsl:value-of select="Value" />
+						</font>
+					</p>
+				</xsl:if>
+				<xsl:if test="Type!='error'">
+					<p>
+						<font color="green">
+							<xsl:value-of select="Value" />
+						</font>
+					</p>
+				</xsl:if>
+			</xsl:if>
+		</xsl:for-each>
+
 		<div id="preferred_lang" style="width:100%;">
 			<script language="JavaScript"> showPrefLang('preferred_lang');</script>
 		</div>
@@ -1970,7 +1987,7 @@
 		</xsl:choose>
 		<br/><br/>
 		If you feel you are seeing this message when you shouldn't be, please submit a
-		bug report to us <a href="/Main?target=contact">here</a>.
+		bug report to us <a href="Main?target=contact">here</a>.
 	</xsl:template>
 
 	<!-- ===================================================================== -->
