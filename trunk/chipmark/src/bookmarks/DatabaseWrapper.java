@@ -981,6 +981,12 @@ public class DatabaseWrapper {
 
 			stmt1.executeUpdate();
 
+			stmt1 = conn1
+					.prepareStatement("DELETE FROM label WHERE linkID = ?");
+			stmt1.setInt(1, linkID);
+
+			stmt1.executeUpdate();
+
 		} finally {
 			if (stmt1 != null) {
 				stmt1.close();
@@ -1473,8 +1479,7 @@ public class DatabaseWrapper {
 
 			int urlID = 0;
 			int clientID = user.getClientID();
-			
-			
+
 			conn1 = ConnectionPool.getConn();
 			conn2 = ConnectionPool.getConn();
 
@@ -1484,14 +1489,14 @@ public class DatabaseWrapper {
 				linkURL = linkURL.substring(0, 254);
 			}
 
-			//Check if the user already saved this URL
+			// Check if the user already saved this URL
 			stmt2c = conn1
-			.prepareStatement("SELECT linkID FROM link WHERE linkClientID = ? AND linkURL = ?");
+					.prepareStatement("SELECT linkID FROM link WHERE linkClientID = ? AND linkURL = ?");
 			stmt2c.setInt(1, clientID);
 			stmt2c.setString(2, linkURL);
-			
+
 			rs1c = stmt2c.executeQuery();
-			
+
 			if (linkPermission.equals("public") && !rs1c.first()) {
 				updateTableURLEntry(linkURL, "add");
 
@@ -1505,8 +1510,6 @@ public class DatabaseWrapper {
 					throw new SQLException("I can't find the URL ID!");
 				}
 			}
-
-			
 
 			// The statement to add the bookmark to the link table
 			stmt1a = conn1
