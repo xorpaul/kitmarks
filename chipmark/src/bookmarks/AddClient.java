@@ -176,7 +176,7 @@ public class AddClient extends HttpServlet {
 							clientPass_entry, clientPass2_entry,
 							clientMail_entry);
 				else
-					writeMessage("Benutzernamen mit '/' ist nicht m�glich!",
+					writeMessage("Benutzernamen mit '/' ist nicht möglich!",
 							response, externalAgent, clientName_entry,
 							clientPass_entry, clientPass2_entry,
 							clientMail_entry);
@@ -189,7 +189,7 @@ public class AddClient extends HttpServlet {
 							externalAgent, clientName_entry, clientPass_entry,
 							clientPass2_entry, clientMail_entry);
 				else
-					writeMessage("Beide Passw�rter m�ssen �bereinstimmen.",
+					writeMessage("Beide Passwörter müssen übereinstimmen.",
 							response, externalAgent, clientName_entry,
 							clientPass_entry, clientPass2_entry,
 							clientMail_entry);
@@ -203,7 +203,7 @@ public class AddClient extends HttpServlet {
 							clientPass_entry, clientPass2_entry,
 							clientMail_entry);
 				else
-					writeMessage("Bitte eine g�ltige email Adresse angeben.",
+					writeMessage("Bitte eine gültige Email Adresse angeben.",
 							response, externalAgent, clientName_entry,
 							clientPass_entry, clientPass2_entry,
 							clientMail_entry);
