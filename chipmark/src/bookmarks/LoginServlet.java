@@ -320,12 +320,17 @@ public class LoginServlet extends HttpServlet {
 
 			resultMsg = BookmarkXML.SUCCESS;
 			String userName = null;
+			String userRole = null;
 
 			userName = userInfo.getClientName();
+			userRole = userInfo.getUserRole();
 
 			if (!userName.equals("admin")) {
 				xml.constructWithResultMsg(userName, resultMsg);
-				Utilities.styleXML(xml, "userHome", userInfo);
+				if (userRole.equals("student"))
+					Utilities.styleXML(xml, "userHome", userInfo);
+				if (userRole.equals("tutor"))
+					Utilities.styleXML(xml, "tutorHome", userInfo);
 			}
 			if (userName.equals("admin")) {
 				xml.constructWithResultMsg(userName, resultMsg);
@@ -335,9 +340,9 @@ public class LoginServlet extends HttpServlet {
 
 			if (userInfo == null) {
 				userInfo = new ClientEntry(0, "SessionDummy",
-						"dummy@session.de", "xxx", true, "ger");
+						"dummy@session.de", "xxx", true, "ger", "student");
 			}
-			
+
 			if (userInfo.getPreferredLang().equals("eng"))
 				msg = FAIL_MESSAGE;
 			else

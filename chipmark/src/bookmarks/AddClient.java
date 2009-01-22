@@ -313,7 +313,7 @@ public class AddClient extends HttpServlet {
 			Utilities.prepareResponseWeb(response);
 
 			ClientEntry userJoined = new ClientEntry(0, "SessionDummy",
-					"dummy@session.de", "xxx", true, "ger");
+					"dummy@session.de", "xxx", true, "ger", "student");
 
 			Utilities.styleXML(xml, "addclientresult", userJoined);
 		}

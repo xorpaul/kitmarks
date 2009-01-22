@@ -302,6 +302,9 @@
 		<xsl:if test="xml/Target='userHome'">
 			<xsl:call-template name="BODY_USER_HOME" />
 		</xsl:if>
+		<xsl:if test="xml/Target='tutorHome'">
+			<xsl:call-template name="BODY_TUTOR_HOME" />
+		</xsl:if>
 		<xsl:if test="xml/Target='api'">
 			<xsl:call-template name="BODY_API" />
 		</xsl:if>
@@ -510,6 +513,73 @@
 	<!--
 		=====================================================================
 	-->
+	
+	<!--
+		BODY_TUTOR_HOME
+	-->
+	<!--
+		=====================================================================
+	-->
+	<xsl:template name="BODY_TUTOR_HOME">
+	<p class="sub_header">Ihre Optionen als Dozent:</p>
+		<xsl:choose>
+			<xsl:when test="not(boolean(xml/LoggedInAs)) or xml/LoggedInAs = ''">
+				<xsl:call-template name="BODY_MAIN" />
+			</xsl:when>
+			<xsl:otherwise>
+				<script type="text/javascript"> showFolderInvites(); showBuddyRequests(0);
+				</script>
+				<table width="100%" border="0">
+					<tr>
+						<td valign="top" width="50%">
+							<p class="sub_header">Ihre Optionen als Dozent:</p>
+							<a href="Main?target=import">
+								<img src="images/acorn16.png" border="0" />
+								Bookmarks importieren
+							</a>
+							<br />
+							<span class="subheader">Zuvor exportierte Bookmarks hochladen
+							</span>
+							<br />
+							<br />
+							<a href="Export">
+								<img src="images/acorn16.png" border="0" />
+								Bookmarks exportieren
+							</a>
+							<br />
+							<span class="subheader">Sicherungsdatei der hochgeladenen
+								Chipmarks erstellen und herunterladen</span>
+							<br />
+							<br />
+							<a href="AddLink">
+								<img src="images/acorn16.png" border="0" />
+								Ein Chipmark hinzufügen
+							</a>
+							<br />
+							<span class="subheader"> Einen neuen Link als Chipmark hinzufügen
+							</span>
+							<br />
+							<br />
+							<a href="Manage">
+								<img src="images/acorn16.png" border="0" />
+								Eigene Chipmarks verwalten
+							</a>
+							<br />
+							<span class="subheader">Eigene Chipmarks anzeigen, löschen,
+								editieren, versenden etc.</span>
+							<br />
+						</td>
+					</tr>
+				</table>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
+	<!--
+		=====================================================================
+	-->
+	
+	
+	
 	<!--
 		BODY_ACCOUNT_PREFS
 	-->
@@ -1849,7 +1919,7 @@
 	<!-- BODY_TOP_10                                                           -->
 	<!-- ===================================================================== -->
 	<xsl:template name="BODY_TOP_10">
-		<p class="subheader">top 10 chipmarks</p>
+		<p class="subheader">Top 10 Chipmarks</p>
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 			<tr>
 				<td>
@@ -1880,7 +1950,7 @@
 										</span>
 
 										<span class="body">
-											bookmarked by <xsl:value-of select="HitCount"/> users.
+											gespeichert von <xsl:value-of select="HitCount"/> Benutzer.
 										</span>
 										<table border="0">
 											<tr>
@@ -1900,10 +1970,10 @@
 													<xsl:if test="boolean(LoggedIn)">
 														<xsl:element name="a">
 															<xsl:attribute name="href">
-																/AddLink?submitBtn=prefilled&amp;linkName=<xsl:value-of select="EncodedName"/>&amp;linkURL=<xsl:value-of select="EncodedLink"/>
+																AddLink?submitBtn=prefilled&amp;linkName=<xsl:value-of select="EncodedName"/>&amp;linkURL=<xsl:value-of select="EncodedLink"/>
 															</xsl:attribute>
 															<xsl:attribute name="title">
-																Add This Link
+																Diesen Link speichern
 															</xsl:attribute>
 															<xsl:attribute name="style">font-size: smaller;</xsl:attribute>
 															<img src="images/add_link_15.png" border="0"/>

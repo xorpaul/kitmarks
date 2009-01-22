@@ -91,7 +91,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
   <xsl:template name="BODY_DOWNLOAD_FIREFOX">
 
    
-          <p class="sub_header">Installing the Firefox Extension</p>
+          <p class="sub_header">Installieren der Firefox Erweiterung</p>
         
           <p class="sub_content">
             Firefox will not install software from websites unless you add the sites to the browser's "Allowed Sites List."  Follow the steps below to install the Chipmark Firefox extension. (These instructions are based upon the default install of <a href="http://www.mozilla.org/products/firefox/">Firefox 2</a>.)
@@ -100,7 +100,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
             <li>
               <b>Download the extension</b>
               <p>
-                <a href="/firefox/chipmark-v.3.2.xpi">Download the extension</a> to begin the installation.
+                <a href="firefox/chipmark-v.3.2.xpi">Download the extension</a> to begin the installation.
               </p>
             </li>
             <li>
@@ -136,7 +136,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
           <p>
             <small>
-              <a href="/firefox/chipmark-v.3.2.md5sum">Extension MD5 Sum</a>
+              <a href="firefox/chipmark-v.3.2.md5sum">Extension MD5 Sum</a>
             </small>
           </p>
 
@@ -158,7 +158,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
           <ol class="content">
             <li>
               <b>Download the toolbar installer</b>
-              <p><a href="/ie/ChipmarkSetup-v.3.2.msi">Download the toolbar installer</a> and click save to save it to your computer.</p>
+              <p><a href="ie/ChipmarkSetup-v.3.2.msi">Download the toolbar installer</a> and click save to save it to your computer.</p>
             </li>
             <li>
               <b>Begin the installation process</b>

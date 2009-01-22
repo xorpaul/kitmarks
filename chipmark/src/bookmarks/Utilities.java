@@ -234,7 +234,7 @@ public class Utilities {
 				// Couldn't find any matching cookie
 
 				ClientEntry userJoined = new ClientEntry(0, "SessionDummy",
-						"dummy@session.de", "xxx", true, "ger");
+						"dummy@session.de", "xxx", true, "ger", "student");
 
 				HttpSession sessionDummy = request.getSession();
 				sessionDummy.setAttribute(Utilities.SESSION_ATTR, userJoined);
@@ -262,7 +262,7 @@ public class Utilities {
 		xml.constructWithResultMsg("", INVALID_USER_MSG);
 
 		ClientEntry userJoined = new ClientEntry(0, "SessionDummy",
-				"dummy@session.de", "xxx", true, "ger");
+				"dummy@session.de", "xxx", true, "ger", "student");
 
 		Utilities.styleXML(xml, "error", userJoined);
 	}

@@ -578,9 +578,9 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 					  <td>
 
 						  <form method="post" enctype="multipart/form-data" action="Import">
-							  <input type="radio" name="permission" value="public" checked="checked" />
+							  <input type="radio" name="permission" value="public" />
 							  <span class="body" style="padding-right: 5ex;">import as public</span>
-							  <input type="radio" name="permission" value="private" />
+							  <input type="radio" name="permission" value="private" checked="checked" />
 							  <span class="body">import as private</span>
 							  <p class="body">
 								  <a href="#publicprivate">What do public and private mean?</a>
