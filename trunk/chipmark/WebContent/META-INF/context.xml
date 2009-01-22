@@ -6,7 +6,7 @@
 		den Datenbanknamen abgeändert werden.
 	-->
 	<Resource name="jdbc/ChipmarkDB" auth="Container" type="javax.sql.DataSource"
-		username="" password="" driverClassName="com.mysql.jdbc.Driver"
+		username="root" password="" driverClassName="com.mysql.jdbc.Driver"
 		url="jdbc:mysql://localhost/chipmark?autoReconnect=true" />
 	<Resource name="UserTransaction" auth="Container"
 		type="javax.transaction.UserTransaction" factory="org.objectweb.jotm.UserTransactionFactory"

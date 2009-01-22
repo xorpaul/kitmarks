@@ -249,7 +249,7 @@ public class NodeAction extends HttpServlet {
 			else {
 				ClientEntry userJoined = new ClientEntry(0,
 						"SessionDummyChanged", "dummy@session.de", "xxx", true,
-						prefLangSession);
+						prefLangSession, "student");
 
 				session = request.getSession(true);
 				session.setAttribute(Utilities.SESSION_ATTR, userJoined);

@@ -580,9 +580,9 @@
 					  <td>
 
 						  <form method="post" enctype="multipart/form-data" action="Import">
-							  <input type="radio" name="permission" value="public" checked="checked" />
+							  <input type="radio" name="permission" value="public" />
 							  <span class="body" style="padding-right: 5ex;">Als öffentlich importieren</span>
-							  <input type="radio" name="permission" value="private" />
+							  <input type="radio" name="permission" value="private" checked="checked" />
 							  <span class="body">Als privat importieren</span>
 							  <p class="body">
 								  <a href="#publicprivate">Was bedeutet öffentlich oder privat?</a>

@@ -64,7 +64,11 @@ public class ClientEntry {
      */
 	private String prefLang;
 	
-
+    /**
+     *  Contains the user role (student or tutor).
+     */
+	private String role;
+	
     /**
      * Constructor to create a new <code>ClientEntry</code> for when a user
      * logs in.  
@@ -94,7 +98,7 @@ public class ClientEntry {
 		       String n_clientMail,
 		       String n_clientPass,
 		       boolean n_adultFilter,
-		       String n_prefLang) {
+		       String n_prefLang, String n_role) {
  	clientID   = n_clientID;
  	clientName = n_clientName;
  	clientMail = n_clientMail;
@@ -102,6 +106,7 @@ public class ClientEntry {
  	prefs = new UserPreferences();
  	filterAdultContent = n_adultFilter;
  	prefLang = n_prefLang;
+ 	role = n_role;
  }
 
     /**
@@ -196,6 +201,22 @@ public class ClientEntry {
      */
 	public void setPreferredLang(String lang) {
 		prefLang = lang;
+	} 
+	
+	 /**
+     * get the role of the user
+     * @return String with value "student" OR "tutor"
+     */
+	public String getUserRole() {
+		return role;
+	} 
+	
+    /**
+     * sets the adult content filter
+     * @return true, one OR false, off
+     */
+	public void setUserRole(String setRole) {
+		role = setRole;
 	} 
 
 }

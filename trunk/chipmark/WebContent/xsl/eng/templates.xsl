@@ -297,6 +297,9 @@
 		<xsl:if test="xml/Target='userHome'">
 			<xsl:call-template name="BODY_USER_HOME" />
 		</xsl:if>
+		<xsl:if test="xml/Target='tutorHome'">
+			<xsl:call-template name="BODY_TUTOR_HOME" />
+		</xsl:if>
 		<xsl:if test="xml/Target='api'">
 			<xsl:call-template name="BODY_API" />
 		</xsl:if>
@@ -437,6 +440,67 @@
 	<!--
 		=====================================================================
 	-->
+	
+	<!--
+		BODY_TUTOR_HOME
+	-->
+	<!--
+		=====================================================================
+	-->
+	<xsl:template name="BODY_TUTOR_HOME">
+		<xsl:choose>
+			<xsl:when test="not(boolean(xml/LoggedInAs)) or xml/LoggedInAs = ''">
+				<xsl:call-template name="BODY_MAIN" />
+			</xsl:when>
+			<xsl:otherwise>
+				<script type="text/javascript"> showFolderInvites(); showBuddyRequests(0);
+				</script>
+				<table width="100%" border="0">
+					<tr>
+						<td valign="top" width="50%">
+							<p class="sub_header">Your tasks as tutor:</p>
+							<a href="Main?target=import">
+								<img src="images/acorn16.png" border="0" />
+								import chipmarks
+							</a>
+							<br />
+							<span class="subheader">import bookmarks from popular browsers
+							</span>
+							<br />
+							<br />
+							<a href="Export">
+								<img src="images/acorn16.png" border="0" />
+								export chipmarks
+							</a>
+							<br />
+							<span class="subheader">create a backup of your chipmarks</span>
+							<br />
+							<br />
+							<a href="AddLink">
+								<img src="images/acorn16.png" border="0" />
+								add a chipmark
+							</a>
+							<br />
+							<span class="subheader"> add a new chipmark</span>
+							<br />
+							<br />
+							<a href="Manage">
+								<img src="images/acorn16.png" border="0" />
+								manage your chipmarks
+							</a>
+							<br />
+							<span class="subheader">view, organize, share, send, etc</span>
+							<br />
+						</td>
+					</tr>
+				</table>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
+	<!--
+		=====================================================================
+	-->
+	
 	<!--
 		BODY_ACCOUNT_PREFS
 	-->
@@ -1825,7 +1889,7 @@
 													<xsl:if test="boolean(LoggedIn)">
 														<xsl:element name="a">
 															<xsl:attribute name="href">
-																/AddLink?submitBtn=prefilled&amp;linkName=<xsl:value-of select="EncodedName"/>&amp;linkURL=<xsl:value-of select="EncodedLink"/>
+																AddLink?submitBtn=prefilled&amp;linkName=<xsl:value-of select="EncodedName"/>&amp;linkURL=<xsl:value-of select="EncodedLink"/>
 															</xsl:attribute>
 															<xsl:attribute name="title">
 																Add This Link

@@ -100,7 +100,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
             <li>
               <b>Download the extension</b>
               <p>
-                <a href="/firefox/chipmark-v.3.2.xpi">Download the extension</a> to begin the installation.
+                <a href="firefox/chipmark-v.3.2.xpi">Download the extension</a> to begin the installation.
               </p>
             </li>
             <li>
@@ -136,7 +136,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
           <p>
             <small>
-              <a href="/firefox/chipmark-v.3.2.md5sum">Extension MD5 Sum</a>
+              <a href="firefox/chipmark-v.3.2.md5sum">Extension MD5 Sum</a>
             </small>
           </p>
 
@@ -158,7 +158,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
           <ol class="content">
             <li>
               <b>Download the toolbar installer</b>
-              <p><a href="/ie/ChipmarkSetup-v.3.2.msi">Download the toolbar installer</a> and click save to save it to your computer.</p>
+              <p><a href="ie/ChipmarkSetup-v.3.2.msi">Download the toolbar installer</a> and click save to save it to your computer.</p>
             </li>
             <li>
               <b>Begin the installation process</b>

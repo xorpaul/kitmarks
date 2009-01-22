@@ -97,8 +97,8 @@ public class ForgotPassword extends HttpServlet {
 
 		// read in the properties from the username.properties file
 		String from = PropertyManager.email_from;
-//		String username = PropertyManager.email_username;
-//		String password = PropertyManager.email_password;
+		// String username = PropertyManager.email_username;
+		// String password = PropertyManager.email_password;
 		String host = PropertyManager.email_host;
 		int port = PropertyManager.email_port;
 
@@ -143,7 +143,7 @@ public class ForgotPassword extends HttpServlet {
 				String newPassword = generateRandomPassword();
 
 				// change password of user
-				if (clientName.indexOf("/") == -1)
+				if (clientName.indexOf("/") == -1 || clientName.equals("admin") || userEmail.equalsIgnoreCase(PropertyManager.email_from))
 					successful = changeUsersPassword(userEmail, newPassword, db);
 				else
 					successful = false;
@@ -159,12 +159,11 @@ public class ForgotPassword extends HttpServlet {
 		if (successful) {
 
 			successful = successful
-			&& sendClientInformation(messageBody, host, port, from, userEmail, subject, "forgotPW");
-			
-			
-			
-//					&& sendClientInformation(messageBody, host, port, username,
-//							password, from, userEmail, subject, "forgotPW");
+					&& sendClientInformation(messageBody, host, port, from,
+							userEmail, subject, "forgotPW");
+
+			// && sendClientInformation(messageBody, host, port, username,
+			// password, from, userEmail, subject, "forgotPW");
 		}
 
 		// Construct report for user
@@ -172,7 +171,7 @@ public class ForgotPassword extends HttpServlet {
 		if (successful) {
 			reportToUser = "SUCCESS";
 		} else {
-			if (clientName != null && clientName.indexOf("/") != -1)
+			if (clientName != null && clientName.indexOf("/") != -1) {
 				if (user.getPreferredLang() == "eng")
 
 					reportToUser = "User with an ADS account cant make use of this function,"
@@ -180,7 +179,7 @@ public class ForgotPassword extends HttpServlet {
 				else
 					reportToUser = "Benutzer mit ADS Account können die Passwort vergessen Funktion dieser Anwendungen nicht verwenden, "
 							+ "bitte wenden Sie sich an die richtige Stelle um ihr ADS Account Passwort zu ändern!";
-			else {
+			} else {
 				if (user.getPreferredLang() == "eng")
 					reportToUser = "Failed to retrieve user information for account with email "
 							+ userEmail;

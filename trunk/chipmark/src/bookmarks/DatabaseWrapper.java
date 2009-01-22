@@ -1857,7 +1857,7 @@ public class DatabaseWrapper {
 		try {
 			conn1 = ConnectionPool.getConn();
 			stmt1 = conn1
-					.prepareStatement("SELECT clientID, clientMail, clientPass, clientAdultFilter, preferredLang FROM client WHERE clientName = ? AND clientPass = ?");
+					.prepareStatement("SELECT clientID, clientMail, clientPass, clientAdultFilter, preferredLang, userRole FROM client WHERE clientName = ? AND clientPass = ?");
 			stmt1.setString(1, clientName);
 
 			if (!isEncrypted) {
@@ -1884,6 +1884,7 @@ public class DatabaseWrapper {
 			}
 
 			String prefLang = rs1.getString("preferredLang");
+			String role = rs1.getString("userRole");
 
 			if (stmt1 != null) {
 				stmt1.close();
@@ -1900,7 +1901,7 @@ public class DatabaseWrapper {
 			}
 
 			return new ClientEntry(clientID, clientName, clientMail,
-					clientPass_encrypted, clientAdultFilterDB, prefLang);
+					clientPass_encrypted, clientAdultFilterDB, prefLang, role);
 
 		} finally {
 			if (stmt1 != null) {
@@ -3458,7 +3459,7 @@ public class DatabaseWrapper {
 		try {
 			conn1 = ConnectionPool.getConn();
 			stmt1 = conn1
-					.prepareStatement("SELECT clientID, clientName, clientMail, clientPass, clientAdultFilter, preferredLang FROM client WHERE clientName = ? LIMIT 1");
+					.prepareStatement("SELECT clientID, clientName, clientMail, clientPass, clientAdultFilter, preferredLang, userRole FROM client WHERE clientName = ? LIMIT 1");
 			stmt1.setString(1, strUser);
 			rs1 = stmt1.executeQuery();
 
@@ -3476,7 +3477,7 @@ public class DatabaseWrapper {
 			return new ClientEntry(rs1.getInt("clientID"), rs1
 					.getString("clientName"), rs1.getString("clientMail"), rs1
 					.getString("clientPass"), clientAdultFilterDB, rs1
-					.getString("preferredLang"));
+					.getString("preferredLang"),rs1.getString("userRole"));
 		} finally {
 			if (stmt1 != null) {
 				stmt1.close();
@@ -3503,7 +3504,7 @@ public class DatabaseWrapper {
 		try {
 			conn1 = ConnectionPool.getConn();
 			stmt1 = conn1
-					.prepareStatement("SELECT clientID, clientName, clientMail, clientPass, clientAdultFilter, preferredLang FROM client WHERE clientID = ? LIMIT 1");
+					.prepareStatement("SELECT clientID, clientName, clientMail, clientPass, clientAdultFilter, preferredLang, userRole FROM client WHERE clientID = ? LIMIT 1");
 			stmt1.setInt(1, strUser);
 			rs1 = stmt1.executeQuery();
 
@@ -3521,7 +3522,7 @@ public class DatabaseWrapper {
 			return new ClientEntry(rs1.getInt("clientID"), rs1
 					.getString("clientName"), rs1.getString("clientMail"), rs1
 					.getString("clientPass"), clientAdultFilterDB, rs1
-					.getString("preferredLang"));
+					.getString("preferredLang"), rs1.getString("userRole"));
 		} finally {
 			if (stmt1 != null) {
 				stmt1.close();
